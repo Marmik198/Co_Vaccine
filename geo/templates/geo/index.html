@@ -149,7 +149,8 @@
                     });
                 },
                 onEachFeature: function(feature,layer){
-                    layer.bindPopup("Center name : "+feature.properties.name.toString()+"<br>"+"<h1 style='color: red'>"+(feature.properties).toString()+"</h1>" +"Slots Available : "+slots);
+layer.bindPopup("<h1 style='font-size: 18px;text-transform: capitalize'>"+"Center name : "+feature.properties.name.toString()+
+                        "<br><br>"+"Slots Available : "+ slots+"</h1> <br> <a class='rside btn-general btn-gradient' href='../../../appointment'> Book Appointment </a>");
                 }
 
             });
@@ -237,8 +238,8 @@
                     });
                 },
                 onEachFeature: function(feature,layer){
-                    layer.bindPopup("Center name : "+feature.properties.name.toString()+"<br>"+"<h1 style='color: red'>"+(feature.properties).toString()+"</h1>" +"Slots Available : "+slots);
-                }
+layer.bindPopup("<h1 style='font-size: 18px;text-transform: capitalize'>"+"Center name : "+feature.properties.name.toString()+
+                        "<br><br>"+"Slots Available : "+ slots+"</h1> <br> <a class='rside btn-general btn-gradient' href='../../../appointment'> Book Appointment </a>");                }
 
             });
 
