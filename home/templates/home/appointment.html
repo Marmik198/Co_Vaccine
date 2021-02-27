@@ -24,153 +24,263 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{% static 'home/css/styles.css' %}">
     <link rel="stylesheet" href="{% static 'home/css/forms.css' %}">
-
 </head>
 
 <body>
-    <div class="section section-white">
-        <div class="container">
-            <div class="section-heading">
-                <h2 align="center" style="font-size:40px"><b><u style="text-decoration-color:#0a5796">Appointment Form</u></b></h2><br>
-            </div><br><br>
-            <form enctype="multipart/form-data">
+<div class="section section-white">
+    <div class="container">
+        <div class="section-heading">
+            <h2 align="center" style="font-size:40px"><b><u style="text-decoration-color:#0a5796">Appointment Form</u></b></h2><br>
+        </div><br><br>
+        <form enctype="multipart/form-data">
 
-                <div class="form-row">
-                    <div class="form-group col-md-4">
-                        <label class="complaint-form-label" for="firstName">First Name <span style="color:red">*</span></label>
-                        <input type="text" class="form-control" id=firstName name="firstName" placeholder="Aryan" required>
-                    </div>
-
-                    <div class="form-group col-md-4">
-                        <label class="complaint-form-label" for="lastname">Last Name <span style="color:red">*</span></label>
-                        <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Mehta" required>
-                    </div>
-                    <div class="form-group col-md-4">
-                        <label class="complaint-form-label" for="Gender">Gender <span style="color:red">*</span></label>
-                        <select name="gender" required class="form-control" id="gender" style="margin-top: 10px">
-                            <option value="" default>Choose...</option>
-                            <option value="Male">Male</option>
-                            <option value="Female">Female</option>
-                            <option value="Others">Others</option>
-                        </select>
-                    </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label class="form-label" for="firstName">First Name <span style="color:red">*</span></label>
+                    <input type="text" class="form-control" id=firstName name="firstName" placeholder="Aryan" required>
                 </div>
 
-                <div class="form-row">
-                    <div class="form-group col-md-4">
-                        <label class="complaint-form-label" for="age">Age <span style="color:red">*</span></label>
-                        <input type="num" class="form-control" id="age" name="age" placeholder="18" required>
-                    </div>
-                    <div class="form-group col-md-4">
-                        <label class="complaint-form-label" for="contact">Contact Number <span style="color:red">*</span></label>
-                        <input type="text" class="form-control" id="contact" name="contact" placeholder="Fair" required>
-                    </div>
+                <div class="form-group col-md-6">
+                    <label class="form-label" for="lastname">Last Name <span style="color:red">*</span></label>
+                    <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Mehta" required>
+                </div>
+            </div>
 
-                    <div class="form-group col-md-4">
-                        <label class="complaint-form-label" for="email">Email <span style="color:red">*</span></label>
-                        <input type="text" class="form-control" id="email" name="email" placeholder="5 ft" required>
-                    </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label class="form-label" for="age">Aadhar Number <span style="color:red">*</span></label>
+                    <input type="text" class="form-control" id="aadhar" name="aadhar" placeholder="8812918282381281" required>
                 </div>
 
-                <div class="form-row">
-                    <div class="form-group col-md-4">
-                        <label class="complaint-form-label" for="Flatno">Room No/Street Name</label>
-                        <input type="text" class="form-control" id="Flatno" name="Flatno" placeholder="1209">
-                    </div>
-                    <div class="form-group col-md-4">
-                        <label class="complaint-form-label" for="Address">Address</label>
-                        <input type="text" class="form-control" id="Address" name="Address" placeholder="Sector-1,Bandra">
-                    </div>
 
-                    <div class="form-group col-md-4">
-                        <label class="complaint-form-label" for="City">City</label>
-                        <input type="text" class="form-control" id="City" name="City" placeholder="Mumbai">
-                    </div>
+                <div class="form-group col-md-6">
+                    <label class="form-label" for="contact">Contact Number <span style="color:red">*</span></label>
+                    <input type="text" class="form-control" id="contact" name="contact" placeholder="9823727121" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label class="form-label" for="age">Age <span style="color:red">*</span></label>
+                    <input type="num" class="form-control" id="age" name="age" placeholder="18" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label class="complaint-form-label" for="Gender">Gender <span style="color:red">*</span></label>
+                    <select name="gender" required class="form-control" id="gender" style="margin-top: 10px">
+                        <option value="" default>Choose...</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Others">Others</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label class="form-label" for="Flatno">Room No/Street Name</label>
+                    <input type="text" class="form-control" id="Flatno" name="Flatno" placeholder="1209">
+                </div>
+                <div class="form-group col-md-4">
+                    <label class="form-label" for="Address">Address</label>
+                    <input type="text" class="form-control" id="Address" name="Address" placeholder="Sector-1,Bandra">
                 </div>
 
-                <div class="form-row d-flex justify-content-between">
-                    <div class="form-group col-md-5">
-                        <label class="complaint-form-label" for="State">State</label>
-                        <input type="text" class="form-control" id="State" name="State" placeholder="Maharashtra">
-                    </div>
+                <div class="form-group col-md-4">
+                    <label class="form-label" for="City">City</label>
+                    <input type="text" class="form-control" id="City" name="City" placeholder="Mumbai">
+                </div>
+            </div>
 
-                    <div class="form-group col-md-5">
-                        <label class="complaint-form-label" for="Country">Country</label>
-                        <input type="text" class="form-control" id="Country" name="Country" placeholder="India">
-                    </div>
+            <div class="form-row d-flex justify-content-between">
+                <div class="form-group col-md-5">
+                    <label class="form-label" for="State">State</label>
+                    <input type="text" class="form-control" id="State" name="State" placeholder="Maharashtra">
                 </div>
 
-                <div class="form-row d-flex justify-content-between">
-                    <div class="form-group col-md-4">
-                        <label class="complaint-form-label" for="DOB">Date of Appointment: <span style="color:red">*</span></label>
-                        <input type="date" id="DOB" name="DOB" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="complaint-form-label" for="tenantReason">Place Of Appointment <span style="color:red">*</span></label>
-                        <select id="TenantReason" required class="form-control" name="tenantReason" style="margin-top: 10px" onchange="choice(this);">
-                            <option value="">Choose...</option>
-                            <option value="Education">Education</option>
-                            <option value="Work">Work</option>
-                            <option value="Medical">Medical</option>
-                            <option value="Others">Others</option>
-                        </select>
-                    </div>
+                <div class="form-group col-md-5">
+                    <label class="form-label" for="Country">Country</label>
+                    <input type="text" class="form-control" id="Country" name="Country" placeholder="India">
                 </div>
+            </div>
+            <form>
 
-                <div class="form-group">
-                    <label class="complaint-form-label" for="desc">Description <span style="color:red">*</span></label>
-                    <textarea style="resize: none" class="form-control" id="desc" name="desc" rows="5" required></textarea>
-                </div>
+                <label style="font-size:20px;font-weight: 400">Do you have any of the following : (Select all that apply)</label>
+                <label class="custom-container">Lung Disease
+                    <input type="checkbox" checked="checked">
+                    <span class="checkmark"></span>
+                </label>
 
-                <br>
+                <label class="custom-container">Kidney Disease
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
 
-                <div class="form-group">
-                    <small><i style="font-size: 13px">Max 5 MB</i></small>
-                    <br>
-                    <label style="margin: 0" for="image">Enclose Files <span style="color:red">*</span></label>
-                    <input style="margin: 2px" type="file" multiple="" id="image" name="image" accept="image/*" required>
-                </div>
-                <br>
+                <label class="custom-container">Asthama
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
 
-                <br>
+                <label class="custom-container">Heart Disease
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="custom-container">Diabetes
+                    <input type="checkbox" checked="checked">
+                    <span class="checkmark"></span>
+                </label>
 
+                <label class="custom-container">Anameia
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
 
-                <div class="form-check">
-                    <input style="width:30px;height:30px" required class="form-check-input" type="checkbox" value="" id="flexCheckChecked" unchecked>
+                <label class="custom-container">Blood Disorder
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
 
-                    <p class="form-disclaimer">
-                        I vertify that the information provided by me in above form is accurate and correct as per best of my knowledge. I understand that withholding of information or giving false information is a criminal offense and may result in legal action against me.
-                        <br>
-                        <br>
-                    </p>
-                </div>
-                <div class="d-flex justify-content-between btn-div">
-                    <input type="reset" value="Reset" class="reset-btn btn-general btn-gradient">
-                    <input id="submit-btn" type="submit" value="Submit" class="submit-btn btn-general btn-gradient">
-                </div>
+                <label class="custom-container">None
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
             </form>
+            <br>
+            <label style="font-size:20px">Have you ever tested positive for Covid before</label>
+            <label class="custom1-container">Yes
+                <input type="radio" checked="checked" name="radio">
+                <span class="checkmark-1"></span>
+            </label>
+            <label class="custom1-container">No
+                <input type="radio" name="radio">
+                <span class="checkmark-1"></span>
+            </label>
+            <br>
+
+            <label style="font-size:20px">In the last 14 days, have you travelled internationally?</label>
+            <label class="custom1-container">Yes
+                <input type="radio" checked="checked" name="radio-1">
+                <span class="checkmark-1"></span>
+            </label>
+            <label class="custom1-container">No
+                <input type="radio" name="radio-1">
+                <span class="checkmark-1"></span>
+            </label>
+
+            <br>
+
+            <label style="font-size:20px">Do you have any of the following : (Select all that apply)</label>
+            <label class="custom-container">Cough
+                <input type="checkbox" checked="checked">
+                <span class="checkmark"></span>
+            </label>
+
+            <label class="custom-container">Cold
+                <input type="checkbox">
+                <span class="checkmark"></span>
+            </label>
+
+            <label class="custom-container">Fever
+                <input type="checkbox">
+                <span class="checkmark"></span>
+            </label>
+
+            <label class="custom-container">Shortness of breath
+                <input type="checkbox">
+                <span class="checkmark"></span>
+            </label>
+            <label class="custom-container">Sore throat
+                <input type="checkbox" checked="checked">
+                <span class="checkmark"></span>
+            </label>
+
+            <label class="custom-container">Anameia
+                <input type="checkbox">
+                <span class="checkmark"></span>
+            </label>
+
+            <label class="custom-container">Loss of smell and taste
+                <input type="checkbox">
+                <span class="checkmark"></span>
+            </label>
+
+            <label class="custom-container">Abdnominal pain
+                <input type="checkbox">
+                <span class="checkmark"></span>
+            </label>
+
+            <br>
+
+            <div class="form-row d-flex justify-content-between">
+                <div class="form-group col-md-4">
+                    <label class="form-label" for="DOB">Date of Appointment: <span style="color:red">*</span></label>
+                    <input type="date" id="DOB" name="DOB" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="tenantReason">Place Of Appointment <span style="color:red">*</span></label>
+                    <select id="TenantReason" required class="form-control" name="tenantReason" style="margin-top: 10px" onchange="choice(this);">
+                        <option value="">Choose...</option>
+                        <option value="Education">Education</option>
+                        <option value="Work">Work</option>
+                        <option value="Medical">Medical</option>
+                        <option value="Others">Others</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="desc">Description <span style="color:red">*</span></label>
+                <textarea style="resize: none" class="form-control" id="desc" name="desc" rows="5" required></textarea>
+            </div>
+
+            <br>
+
+            <div class="form-group">
+                <small><i style="font-size: 13px">Max 5 MB</i></small>
+                <br>
+                <label style="margin: 0" for="image">Select image *</label>
+                <input style="margin: 2px" type="file" multiple="" id="image" name="image" accept="image/*" required>
+            </div>
+            <br>
+
+            <br>
+
+
+            <div class="form-check">
+                <input style="width:30px;height:30px" required class="form-check-input" type="checkbox" value="" id="flexCheckChecked" unchecked>
+
+                <p class="form-disclaimer">
+                    I vertify that the information provided by me in above form is accurate and correct as per best of my knowledge. I understand that withholding of information or giving false information is a criminal offense and may result in legal action against me.
+                    <br>
+                    <br>
+                </p>
+            </div>
+            <div class="d-flex justify-content-between btn-div">
+                <input type="reset" value="Reset" class="reset-btn btn-general btn-gradient">
+                <input id="submit-btn" type="submit" value="Submit" class="submit-btn btn-general btn-gradient">
+            </div>
+        </form>
+    </div>
+</div>
+<footer>
+    <div class="container">
+        <div class="row text-center">
+            <p>&copy; Copyright <strong>Co-Vaccine</strong>. All Rights Reserved.</p>
         </div>
     </div>
-    <footer>
-        <div class="container">
-            <div class="row text-center">
-                <p>&copy; Copyright <strong>Co-Vaccine</strong>. All Rights Reserved.</p>
-            </div>
-        </div>
-    </footer>
+</footer>
 
-    <!-- JQuery -->
-    <script src="{% static 'home/js/jquery.min.js' %}"></script>
+<!-- JQuery -->
+<script src="{% static 'home/js/jquery.min.js' %}"></script>
 
-    <!-- Bootstrap JS -->
-    <script src="{% static 'home/js/bootstrap.min.js' %}"></script>
+<!-- Bootstrap JS -->
+<script src="{% static 'home/js/bootstrap.min.js' %}"></script>
 
-    <!-- Owl Carousel JS -->
-    <script src="{% static 'home/js/owl.carousel.min.js' %}"></script>
+<!-- Owl Carousel JS -->
+<script src="{% static 'home/js/owl.carousel.min.js' %}"></script>
 
-    <!-- Custom JS -->
-    <script src="{%  static 'home/js/scripts.js' %}"></script>
+<!-- Custom JS -->
+<script src="{%  static 'home/js/scripts.js' %}"></script>
 
 
 </body>
