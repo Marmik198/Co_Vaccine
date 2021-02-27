@@ -53,9 +53,9 @@
 
                             <li><a class="smooth-scroll" href="#home">Home</a></li>
 
-                            <li><a class="smooth-scroll" href="#find">Find</a></li>
+                            <li><a class="smooth-scroll" href="#book">Book</a></li>
 
-                            <li><a class="smooth-scroll" href="#info">Info</a></li>
+                            <li><a class="smooth-scroll" href="#find">Find</a></li>
 
                             <li><a class="smooth-scroll" href="#get-data">Work</a></li>
 
@@ -86,9 +86,9 @@
 
                             <li><a class="smooth-scroll" href="#home">Home</a></li>
 
-                            <li><a class="smooth-scroll" href="#find">Find</a></li>
+                            <li><a class="smooth-scroll" href="#book">Book</a></li>
 
-                            <li><a class="smooth-scroll" href="#info">Info</a></li>
+                            <li><a class="smooth-scroll" href="#find">Find</a></li>
 
                             <li><a class="smooth-scroll" href="#get-data">Work</a></li>
 
@@ -150,33 +150,6 @@
         </div>
     </section>
     
-    <section id="find">
-        <div class="content-box-lg">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="map text-center">
-                            <div class="map-text">
-                                <h4>Find Centres By Navigating Through Maps!</h4>
-                                <a href="{% url 'appointment' %}" class="btn-general btn-gradient">Click Here &nbsp;<i class="fa fa-chevron-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!--
-                    <div class="col-md-6 text-center">
-                        <form action="" id="zipcode-form">
-                            <div class="form-group">
-                                <label for="zipcode">Find Centres By Entering ZipCodes!</label>
-                                <input type="text" placeholder="Enter ZipCode" autocomplete="off" name="zipcode" class="form-control" id="zipcode-input">
-                            </div>
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </form>
-                    </div>
--->
-                </div>
-            </div>
-        </div>
-    </section>
 
 <section id="book">
         <div class="content-box-md space">
@@ -218,20 +191,30 @@
         </div>
     </section>
 
-    <section id="info" class="gray">
-        <div class="content-box-md">
+
+    <section id="find">
+        <div class="content-box-lg">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="section-heading">
-                            <h3>Co-Vaccine Updates</h3>
+                        <div class="map text-center">
+                            <div class="map-text">
+                                <h4>Find Centres By Navigating Through Maps!</h4>
+                                <a href="{% url 'appointment' %}" class="btn-general btn-gradient">Click Here &nbsp;<i class="fa fa-chevron-right"></i></a>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-12">
-                        <h5>VaccineFinder is temporarily suspending information on flu and routine vaccination services. Call your healthcare provider or department of health if you are in need of a flu or routine vaccine.</h5>
-                        <h6>Vaccines to protect against COVID-19 are now available in limited quantity in the United States.</h6>
-                        <p>Vaccines to protect against COVID-19 are now available in limited quantity in the United States.</p>
+                    <!--
+                    <div class="col-md-6 text-center">
+                        <form action="" id="zipcode-form">
+                            <div class="form-group">
+                                <label for="zipcode">Find Centres By Entering ZipCodes!</label>
+                                <input type="text" placeholder="Enter ZipCode" autocomplete="off" name="zipcode" class="form-control" id="zipcode-input">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
                     </div>
+-->+
                 </div>
             </div>
         </div>

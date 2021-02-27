@@ -189,3 +189,31 @@ function yesterdayUI(data) {
                             <p>TotalRecovered: ${data.todayRecovered}</p>
                             <p>Active: ${data.active}</p>`;
 }
+
+let str = new Date(Date.now() + ( 3600 * 1000 * 24 * 0));
+let s = str.toString();
+let s1 = s.slice(0,15);
+let s2 = formatDate(s1);
+$("#date").attr("min",s2);
+
+str = new Date(Date.now() + ( 3600 * 1000 * 24 * 5));
+s = str.toString();
+s1 = s.slice(0,15);
+s2 = formatDate(s1);
+$("#date").attr("max",s2);
+
+
+
+function formatDate(date) {
+    var d = new Date(date),
+        month = '' + (d.getMonth() + 1),
+        day = '' + d.getDate(),
+        year = d.getFullYear();
+
+    if (month.length < 2)
+        month = '0' + month;
+    if (day.length < 2)
+        day = '0' + day;
+
+    return [year, month, day].join('-');
+}

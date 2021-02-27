@@ -97,7 +97,7 @@ a:hover {
 }
 
 /**********************************************************************************
-********************************* FORM ********************************************
+********************************* HOME ********************************************
 ***********************************************************************************/
 #home {
     position: relative;
@@ -706,4 +706,30 @@ a.rside:hover {
     height: 8px;
     border-radius: 50%;
     background: white;
+}
+
+.map {
+    background-image: url("https://www.google.com/maps/vt/data=s0rDf7ZMKvZMkv1SjMmQLaE36aRooSBUqitIA2omIM0n-4NNz5sOIjM1ImvurOgYQOOpM8toD9etXzv1dKjpP34iQSUFFRIhKTdvwLxDnyAasOKaxuv_dFwo_Uisvz1BKleZ9TMum9UBTFgLseTP69gkwCCeWK4o78TO8Ih4OUCTcyA13t_PZLLQHcMkAaZOhJTu05cN");
+    height: 400px;
+    background-position: 0px -85px;
+    background-size: cover;
+    position: relative;
+    background-repeat: no-repeat;
+    display: block;
+    margin: 0 0 0 5px;
+    width: 100%;
+}
+
+.map-text {
+    position: absolute;
+    top: 55%;
+    right: 7%;
+    transform: translate(-50%,-50%);
+    z-index: 9999;
+}
+
+.map-text h4 {
+    color: white;
+    font-size: 2.5rem;
+    font-weight: 700 ;
 }
