@@ -34,21 +34,34 @@
 		});
 
 
+		var greenIcon = L.icon({
+            iconUrl: "https://www.pngkit.com/png/full/266-2668013_first-aid-symbol-health-and-safety-symbol.png",
+            iconSize: [28, 32],
+            iconAnchor: [12, 28],
+            popupAnchor: [0, -25]
+        })
+        var redIcon = L.icon({
+            iconUrl: "https://lh6.googleusercontent.com/proxy/4zYWpWwVyvw6SGAdqJt8kwFNy4pC1LXYsGuMZ7lSgjUWjZfCB67Ma58oKvBYZXZLP8G3gkvrAOFgrvviw2G8PBUX8AaHsy6CviFKR8Z6Ey_NPZJ5=s0-d",
+            iconSize: [28, 32],
+            iconAnchor: [12, 28],
+            popupAnchor: [0, -25]
+        })
 		var points = new L.GeoJSON.AJAX("{% url 'incidences' %}",{
 			pointToLayer: function (feature, latlng) {
+			    var theIcon = 3;
+                    if(feature.properties.slots_available >= 15) {
+                        theIcon = greenIcon;
+                    } else {
+                        theIcon = redIcon;
+                    }
                 return L.marker(latlng, {
-                    icon: L.icon({
-                        iconUrl: "https://upload.wikimedia.org/wikipedia/en/1/13/Mumbai_Police_logo.png",
-                        iconSize: [28, 32],
-                        iconAnchor: [12, 28],
-                        popupAnchor: [0, -25]
-                    }),
+                    icon: theIcon,
                     title: feature.properties.NAME,
                     riseOnHover: true
                 });
             },
 			onEachFeature: function(feature,layer){
-				layer.bindPopup(feature.properties.name.toString());
+				layer.bindPopup("Center name : "+feature.properties.name.toString()+"<br>"+"<h1 style='color: red'>"+(feature.properties.vaccine_available).toString()+"</h1>" +"Slots Available : "+feature.properties.slots_available.toString());
 			}
 
 		});
