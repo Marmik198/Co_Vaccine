@@ -12,17 +12,17 @@ from django.contrib.gis.geos import Point
 
 
 def map_home(request):
-    # x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
-    # if x_forwarded_for:
-    # 	ip = x_forwarded_for.split(',')[0]
-    # else:
-    # 	ip = request.META.get('REMOTE_ADDR')
-    # g = GeoIP2()
-    # (lat, lng) = g.lat_lon(ip)
-    # template_name = 'index.html'
+    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+    if x_forwarded_for:
+    	ip = x_forwarded_for.split(',')[0]
+    else:
+    	ip = request.META.get('REMOTE_ADDR')
+    g = GeoIP2()
+    (lat, lng) = g.lat_lon(ip)
+    template_name = 'index.html'
     # pnt = Incidences.objects.get(name ='KJSCE').location
-    lat = 71.353201
-    lng = 22.44288
+    lat = lat
+    lng = lng
     pnt = Point(lat, lng, srid=4326)
     inc_near = Incidences.objects.annotate(
         distance=Distance('location', pnt)
@@ -30,13 +30,13 @@ def map_home(request):
     string = str(inc_near.location)
     near_lng = float(string[17:26])
     near_lat = float(string[26:35])
-    print(near_lat)
-    print(near_lng)
-    print(inc_near)
+    # print(near_lat)
+    # print(near_lng)
+    # print(inc_near)
 
     context = {
-        'lng': lat,
-        'lat': lng,
+        'lng': lng,
+        'lat': lat,
         'near_lat': near_lat,
         'near_lng': near_lng,
     }

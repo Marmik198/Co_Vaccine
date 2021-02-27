@@ -8,8 +8,12 @@ from django.db.models import Manager as GeoManager
 class Incidences(models.Model):
     name = models.CharField(max_length=50)
     location = models.PointField(srid=4326, max_length=500)
-    vaccine_available = models.CharField(max_length=50, blank=True)
-    slots_available = models.IntegerField(default=30)
+    today = models.IntegerField(default=30)
+    one = models.IntegerField(default=30)
+    two = models.IntegerField(default=30)
+    three = models.IntegerField(default=30)
+    four = models.IntegerField(default=30)
+    five = models.IntegerField(default=30)
     objects = GeoManager()
 
     def __str__(self):
