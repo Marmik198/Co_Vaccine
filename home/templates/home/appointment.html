@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Appointment Form</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&display=swap" rel="stylesheet">
+
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" href="{% static 'home/css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'home/css/owl.theme.default.min.css' %}">
+
+    <!-- Fontawesome -->
+    <link rel="stylesheet" href="{%  static 'home/css/font-awesome/css/font-awesome.min.css' %}">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'home/css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'home/css/forms.css' %}">
+
+</head>
+
+<body>
+    <div class="section section-white">
+        <div class="container">
+            <div class="section-heading">
+                <h2 align="center" style="font-size:40px"><b><u style="text-decoration-color:#0a5796">Appointment Form</u></b></h2><br>
+            </div><br><br>
+            <form enctype="multipart/form-data">
+
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label class="complaint-form-label" for="firstName">First Name <span style="color:red">*</span></label>
+                        <input type="text" class="form-control" id=firstName name="firstName" placeholder="Aryan" required>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label class="complaint-form-label" for="lastname">Last Name <span style="color:red">*</span></label>
+                        <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Mehta" required>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="complaint-form-label" for="Gender">Gender <span style="color:red">*</span></label>
+                        <select name="gender" required class="form-control" id="gender" style="margin-top: 10px">
+                            <option value="" default>Choose...</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Others">Others</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label class="complaint-form-label" for="age">Age <span style="color:red">*</span></label>
+                        <input type="num" class="form-control" id="age" name="age" placeholder="18" required>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="complaint-form-label" for="contact">Contact Number <span style="color:red">*</span></label>
+                        <input type="text" class="form-control" id="contact" name="contact" placeholder="Fair" required>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label class="complaint-form-label" for="email">Email <span style="color:red">*</span></label>
+                        <input type="text" class="form-control" id="email" name="email" placeholder="5 ft" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label class="complaint-form-label" for="Flatno">Room No/Street Name</label>
+                        <input type="text" class="form-control" id="Flatno" name="Flatno" placeholder="1209">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="complaint-form-label" for="Address">Address</label>
+                        <input type="text" class="form-control" id="Address" name="Address" placeholder="Sector-1,Bandra">
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label class="complaint-form-label" for="City">City</label>
+                        <input type="text" class="form-control" id="City" name="City" placeholder="Mumbai">
+                    </div>
+                </div>
+
+                <div class="form-row d-flex justify-content-between">
+                    <div class="form-group col-md-5">
+                        <label class="complaint-form-label" for="State">State</label>
+                        <input type="text" class="form-control" id="State" name="State" placeholder="Maharashtra">
+                    </div>
+
+                    <div class="form-group col-md-5">
+                        <label class="complaint-form-label" for="Country">Country</label>
+                        <input type="text" class="form-control" id="Country" name="Country" placeholder="India">
+                    </div>
+                </div>
+
+                <div class="form-row d-flex justify-content-between">
+                    <div class="form-group col-md-4">
+                        <label class="complaint-form-label" for="DOB">Date of Appointment: <span style="color:red">*</span></label>
+                        <input type="date" id="DOB" name="DOB" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="complaint-form-label" for="tenantReason">Place Of Appointment <span style="color:red">*</span></label>
+                        <select id="TenantReason" required class="form-control" name="tenantReason" style="margin-top: 10px" onchange="choice(this);">
+                            <option value="">Choose...</option>
+                            <option value="Education">Education</option>
+                            <option value="Work">Work</option>
+                            <option value="Medical">Medical</option>
+                            <option value="Others">Others</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="complaint-form-label" for="desc">Description <span style="color:red">*</span></label>
+                    <textarea style="resize: none" class="form-control" id="desc" name="desc" rows="5" required></textarea>
+                </div>
+
+                <br>
+
+                <div class="form-group">
+                    <small><i style="font-size: 13px">Max 5 MB</i></small>
+                    <br>
+                    <label style="margin: 0" for="image">Enclose Files <span style="color:red">*</span></label>
+                    <input style="margin: 2px" type="file" multiple="" id="image" name="image" accept="image/*" required>
+                </div>
+                <br>
+
+                <br>
+
+
+                <div class="form-check">
+                    <input style="width:30px;height:30px" required class="form-check-input" type="checkbox" value="" id="flexCheckChecked" unchecked>
+
+                    <p class="form-disclaimer">
+                        I vertify that the information provided by me in above form is accurate and correct as per best of my knowledge. I understand that withholding of information or giving false information is a criminal offense and may result in legal action against me.
+                        <br>
+                        <br>
+                    </p>
+                </div>
+                <div class="d-flex justify-content-between btn-div">
+                    <input type="reset" value="Reset" class="reset-btn btn-general btn-gradient">
+                    <input id="submit-btn" type="submit" value="Submit" class="submit-btn btn-general btn-gradient">
+                </div>
+            </form>
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+            <div class="row text-center">
+                <p>&copy; Copyright <strong>Co-Vaccine</strong>. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JQuery -->
+    <script src="{% static 'home/js/jquery.min.js' %}"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="{% static 'home/js/bootstrap.min.js' %}"></script>
+
+    <!-- Owl Carousel JS -->
+    <script src="{% static 'home/js/owl.carousel.min.js' %}"></script>
+
+    <!-- Custom JS -->
+    <script src="{%  static 'home/js/scripts.js' %}"></script>
+
+
+</body>
+
+</html>

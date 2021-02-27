@@ -1,10 +1,210 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Home</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Vaccine Portal</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&display=swap" rel="stylesheet">
+
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" href="{% static 'home/css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'home/css/owl.theme.default.min.css' %}">
+
+    <!-- Fontawesome -->
+    <link rel="stylesheet" href="{%  static 'home/css/font-awesome/css/font-awesome.min.css' %}">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'home/css/bootstrap.min.css' %}">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'home/css/styles.css' %}">
 </head>
+
 <body>
-Welcome Growmore
+
+    <section id="home">
+        <div class="row">
+            <div class="col-md-12">
+                <img src="{% static 'home/Images/hero.jpg' %}" alt="home-image" class="img-responsive">
+                <div class="text-content">
+                    <h5 class="strip-title">Co-Vaccine Provides</h5>
+                    <div class="text">
+                        <h3 class="subtitle">Faster Access</h3>
+                        <h2 class="title">Medical treatment for you and your family.</h2>
+                        <ul class="feature-list">
+                            <li class="feature-list-item">Risus nec luctus mauris orci auctor purus euismod pretium purus pretium ligula rutrum tempor sapien and luctus</li>
+                            <li class="feature-list-item">Nemo ipsam egestas volute turpis dolores ut aliquam quaerat sodales sapien undo pretium purus feugiat dolor impedit</li>
+                        </ul>
+                        <p><a href="#" class="btn-general btn-gradient">Discover More</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="find">
+        <div class="content-box-lg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="map text-center">
+                            <div class="map-text">
+                                <h4>Find Centres By Navigating Through Maps!</h4>
+                                <a href="" class="btn-general btn-gradient">Click Here &nbsp;<i class="fa fa-chevron-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!--
+                    <div class="col-md-6 text-center">
+                        <form action="" id="zipcode-form">
+                            <div class="form-group">
+                                <label for="zipcode">Find Centres By Entering ZipCodes!</label>
+                                <input type="text" placeholder="Enter ZipCode" autocomplete="off" name="zipcode" class="form-control" id="zipcode-input">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+-->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="info" class="gray">
+        <div class="content-box-md">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="section-heading">
+                            <h3>Co-Vaccine Updates</h3>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <h5>VaccineFinder is temporarily suspending information on flu and routine vaccination services. Call your healthcare provider or department of health if you are in need of a flu or routine vaccine.</h5>
+                        <h6>Vaccines to protect against COVID-19 are now available in limited quantity in the United States.</h6>
+                        <p>Vaccines to protect against COVID-19 are now available in limited quantity in the United States.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="get-data">
+        <div class="content-box-md">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="section-heading">
+                            <h3>Get Data on Covid19 for any Country!</h3>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <form action="" id="country-form">
+                            <input type="text" name="country" id="country" class="form-control" placeholder="Enter Country">
+                            <button type="submit" class="btn-general btn-gradient mt20">Submit</button>
+                        </form>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="result">
+                            <div class="col-md-12 text-center"></div>
+                            <div class="col-md-6 text-center">
+                                <div class="today-data"></div>
+                            </div>
+                            <div class="col-md-6 text-center">
+                                <div class="yesterday-data"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="gray">
+        <div class="content-box-md">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="section-heading">
+                            <h3>About Us</h3>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h4>We want to make vaccination easy and accessible to everyone.</h4>
+                                <p>VaccineFinder is a free, online service where users can search for locations that offer vaccinations. We work with partners such as clinics, pharmacies, and health departments to provide accurate and up-to-date information about vaccination services. VaccineFinder is operated by epidemiologists and software developers at Boston Children's Hospital.</p>
+                            </div>
+                            <div class="col-md-6">
+                                <img src="{% static 'home/Images/about.png' %}" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="clients">
+        <div class="content-box-sm">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div id="clients-elements" class="owl-carousel owl-theme">
+                            <div class="client">
+                                <img src="{% static 'home/Images/logo/client-1.jpg' %}" alt="clients" class="img-responsive">
+                            </div>
+                            <div class="client">
+                                <img src="{% static 'home/Images/logo/client-2.png' %}" alt="clients" class="img-responsive">
+                            </div>
+                            <div class="client">
+                                <img src="{% static 'home/Images/logo/client-3.jpg' %}" alt="clients" class="img-responsive">
+                            </div>
+                            <div class="client">
+                                <img src="{% static 'home/Images/logo/client-4.png' %}" alt="clients" class="img-responsive">
+                            </div>
+                            <div class="client">
+                                <img src="{% static 'home/Images/logo/client-5.png' %}" alt="clients" class="img-responsive">
+                            </div>
+                            <div class="client">
+                                <img src="{% static 'home/Images/logo/client-6.jpg' %}" alt="clients" class="img-responsive">
+                            </div>
+                            <div class="client">
+                                <img src="{% static 'home/Images/logo/client-7.png' %}" alt="clients" class="img-responsive">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row text-center">
+                <p>&copy; Copyright <strong>Co-Vaccine</strong>. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JQuery -->
+    <script src="{% static 'home/js/jquery.min.js' %}"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="{% static 'home/js/bootstrap.min.js' %}"></script>
+
+    <!-- Owl Carousel JS -->
+    <script src="{% static 'home/js/owl.carousel.min.js' %}"></script>
+
+    <!-- Custom JS -->
+    <script src="{%  static 'home/js/scripts.js' %}"></script>
+
 </body>
+
 </html>
