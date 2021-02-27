@@ -1,3 +1,32 @@
 from django.db import models
 
 # Create your models here.
+
+class Appointment(models.Model):
+    # covid19 = (
+    #     ('Y', 'Yes'),
+    #     ('N', 'No'),
+    # )
+    firstName = models.CharField(max_length=100,blank=True)
+    lastname = models.CharField(max_length=100,blank=True)
+    aadhar = models.CharField(max_length=16,blank=True)
+    contact = models.CharField(max_length=10,blank=True)
+    age = models.IntegerField(blank=True)
+    gender = models.CharField(max_length=30,blank=True)
+    Flatno = models.CharField(max_length=50,blank=True)
+    Address = models.CharField(max_length=50,blank=True)
+    City = models.CharField(max_length=50,blank=True)
+    State = models.CharField(max_length=50,blank=True)
+    Country = models.CharField(max_length=50,blank=True)
+    medical_issues = models.CharField(max_length=100,default="N.A.")
+    current_symptom = models.CharField(max_length=50,blank=True,default="N.A.")
+    covid_status = models.CharField(max_length=30,default="Negative")
+    travel_history = models.CharField(max_length=30,default="No")
+    dose = models.CharField(max_length=30,blank=True)
+    desc = models.CharField(max_length=255,blank=True)
+    image = models.ImageField(default='default.png',upload_to='appointment_verification')
+
+
+    def __str__(self):
+            return self.firstName + " " + self.lastname
+

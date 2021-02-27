@@ -31,28 +31,25 @@
     <div class="container">
         <div class="section-heading">
             <h2 align="center" style="font-size:40px"><b><u style="text-decoration-color:#0a5796">Appointment Form</u></b></h2><br>
-        </div><br><br>
-        <form enctype="multipart/form-data">
-
+        </div>
+        <br><br>
+        <form action="{% url 'appointment_form_submission' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label class="form-label" for="firstName">First Name <span style="color:red">*</span></label>
                     <input type="text" class="form-control" id=firstName name="firstName" placeholder="Aryan" required>
                 </div>
-
                 <div class="form-group col-md-6">
                     <label class="form-label" for="lastname">Last Name <span style="color:red">*</span></label>
                     <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Mehta" required>
                 </div>
             </div>
-
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label class="form-label" for="age">Aadhar Number <span style="color:red">*</span></label>
                     <input type="text" class="form-control" id="aadhar" name="aadhar" placeholder="8812918282381281" required>
                 </div>
-
-
                 <div class="form-group col-md-6">
                     <label class="form-label" for="contact">Contact Number <span style="color:red">*</span></label>
                     <input type="text" class="form-control" id="contact" name="contact" placeholder="9823727121" required>
@@ -102,67 +99,63 @@
                     <input type="text" class="form-control" id="Country" name="Country" placeholder="India">
                 </div>
             </div>
-            <form>
 
-                <label style="font-size:20px;font-weight: 400">Do you have any of the following : (Select all that apply)</label>
-                <label class="custom-container">Lung Disease
-                    <input type="checkbox" checked="checked">
-                    <span class="checkmark"></span>
-                </label>
+            <label style="font-size:20px;font-weight: 400">Do you have any of the following : (Select all that apply)</label>
+            <label class="custom-container">Lung Disease
+                <input type="checkbox" name="meds[]" value="Lung Disease">
+                <span class="checkmark"></span>
+            </label>
 
-                <label class="custom-container">Kidney Disease
-                    <input type="checkbox">
-                    <span class="checkmark"></span>
-                </label>
+            <label class="custom-container">Kidney Disease
+                <input type="checkbox" name="meds[]" value="Kidney Disease">
+                <span class="checkmark"></span>
+            </label>
 
-                <label class="custom-container">Asthama
-                    <input type="checkbox">
-                    <span class="checkmark"></span>
-                </label>
+            <label class="custom-container">Asthama
+                <input type="checkbox" name="meds[]" value="Asthama">
+                <span class="checkmark"></span>
+            </label>
 
-                <label class="custom-container">Heart Disease
-                    <input type="checkbox">
-                    <span class="checkmark"></span>
-                </label>
-                <label class="custom-container">Diabetes
-                    <input type="checkbox" checked="checked">
-                    <span class="checkmark"></span>
-                </label>
+            <label class="custom-container">Heart Disease
+                <input type="checkbox" name="meds[]" value="Heart Disease">
+                <span class="checkmark"></span>
+            </label>
+            <label class="custom-container" >Diabetes
+                <input type="checkbox" name="meds[]" value="Diabetes">
+                <span class="checkmark"></span>
+            </label>
 
-                <label class="custom-container">Anameia
-                    <input type="checkbox">
-                    <span class="checkmark"></span>
-                </label>
+            <label class="custom-container">Anameia
+                <input type="checkbox" name="meds[]" value="Anameia">
+                <span class="checkmark"></span>
+            </label>
 
-                <label class="custom-container">Blood Disorder
-                    <input type="checkbox">
-                    <span class="checkmark"></span>
-                </label>
+            <label class="custom-container">Blood Disorder
+                <input type="checkbox" name="meds[]" value="Blood Disorder">
+                <span class="checkmark"></span>
+            </label>
 
-                <label class="custom-container">None
-                    <input type="checkbox">
-                    <span class="checkmark"></span>
-                </label>
-            </form>
+
+
             <br>
             <label style="font-size:20px">Have you ever tested positive for Covid before</label>
             <label class="custom1-container">Yes
-                <input type="radio" checked="checked" name="radio">
+                <input type="radio" name="radio" value="Positive">
                 <span class="checkmark-1"></span>
             </label>
             <label class="custom1-container">No
-                <input type="radio" name="radio">
+                <input type="radio" name="radio" value="Negative">
                 <span class="checkmark-1"></span>
             </label>
             <br>
 
             <label style="font-size:20px">In the last 14 days, have you travelled internationally?</label>
             <label class="custom1-container">Yes
-                <input type="radio" checked="checked" name="radio-1">
+                <input type="radio"  name="radio-1" value="Yes">
                 <span class="checkmark-1"></span>
             </label>
             <label class="custom1-container">No
-                <input type="radio" name="radio-1">
+                <input type="radio" name="radio-1" value="No">
                 <span class="checkmark-1"></span>
             </label>
 
@@ -170,41 +163,41 @@
 
             <label style="font-size:20px">Do you have any of the following : (Select all that apply)</label>
             <label class="custom-container">Cough
-                <input type="checkbox" checked="checked">
+                <input type="checkbox" name="symptoms[]" value="Cough">
                 <span class="checkmark"></span>
             </label>
 
             <label class="custom-container">Cold
-                <input type="checkbox">
+                <input type="checkbox" name="symptoms[]" value="Cold">
                 <span class="checkmark"></span>
             </label>
 
             <label class="custom-container">Fever
-                <input type="checkbox">
+                <input type="checkbox" name="symptoms[]" value="Fever">
                 <span class="checkmark"></span>
             </label>
 
             <label class="custom-container">Shortness of breath
-                <input type="checkbox">
+                <input type="checkbox" name="symptoms[]" value="Shortness of breath">
                 <span class="checkmark"></span>
             </label>
             <label class="custom-container">Sore throat
-                <input type="checkbox" checked="checked">
+                <input type="checkbox" name="symptoms[]" value="Sore Throat">
                 <span class="checkmark"></span>
             </label>
 
             <label class="custom-container">Anameia
-                <input type="checkbox">
+                <input type="checkbox" name="symptoms[]" value="Anameia">
                 <span class="checkmark"></span>
             </label>
 
             <label class="custom-container">Loss of smell and taste
-                <input type="checkbox">
+                <input type="checkbox" name="symptoms[]" value="Loss of smell and taste">
                 <span class="checkmark"></span>
             </label>
 
             <label class="custom-container">Abdnominal pain
-                <input type="checkbox">
+                <input type="checkbox" name="symptoms[]" value="Abdominal pain">
                 <span class="checkmark"></span>
             </label>
 
@@ -212,11 +205,20 @@
 
             <div class="form-row d-flex justify-content-between">
                 <div class="form-group col-md-4">
-                    <label class="form-label" for="DOB">Date of Appointment: <span style="color:red">*</span></label>
-                    <input type="date" id="DOB" name="DOB" required>
+                    <label class="form-label" for="date">Date of Appointment: <span style="color:red">*</span></label>
+                    <input type="date" id="date" name="date" required>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group col-md-4">
+                    <label class="form-label" for="dose">Vaccine Dose <span style="color:red">*</span></label>
+                    <select id="dose" required class="form-control" name="dose" style="margin-top: 10px">
+                        <option value="">Choose...</option>
+                        <option value="Dose 1">Dose 1</option>
+                        <option value="Dose 2">Dose 2</option>
+                    </select>
+                </div>
+
+                <div class="form-group col-md-4">
                     <label class="form-label" for="tenantReason">Place Of Appointment <span style="color:red">*</span></label>
                     <select id="TenantReason" required class="form-control" name="tenantReason" style="margin-top: 10px" onchange="choice(this);">
                         <option value="">Choose...</option>
@@ -246,19 +248,19 @@
             <br>
 
 
-            <div class="form-check">
-                <input style="width:30px;height:30px" required class="form-check-input" type="checkbox" value="" id="flexCheckChecked" unchecked>
+                <div class="form-check">
+                    <input style="width:30px;height:30px" required class="form-check-input" type="checkbox" value="" id="flexCheckChecked" unchecked>
 
-                <p class="form-disclaimer">
-                    I vertify that the information provided by me in above form is accurate and correct as per best of my knowledge. I understand that withholding of information or giving false information is a criminal offense and may result in legal action against me.
-                    <br>
-                    <br>
-                </p>
-            </div>
-            <div class="d-flex justify-content-between btn-div">
-                <input type="reset" value="Reset" class="reset-btn btn-general btn-gradient">
-                <input id="submit-btn" type="submit" value="Submit" class="submit-btn btn-general btn-gradient">
-            </div>
+                    <p class="form-disclaimer">
+                        I vertify that the information provided by me in above form is accurate and correct as per best of my knowledge. I understand that withholding of information or giving false information is a criminal offense and may result in legal action against me.
+                        <br>
+                        <br>
+                    </p>
+                </div>
+                <div class="d-flex justify-content-between btn-div">
+                    <input type="reset" value="Reset" class="reset-btn btn-general btn-gradient">
+                    <input id="submit-btn" type="submit" value="Submit" class="submit-btn btn-general btn-gradient">
+                </div>
         </form>
     </div>
 </div>
