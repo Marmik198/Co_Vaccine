@@ -15,10 +15,6 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 import dj_database_url
 
-
-
-
-
 #Used to fix gdal library error
 if os.name == 'nt':
     import platform

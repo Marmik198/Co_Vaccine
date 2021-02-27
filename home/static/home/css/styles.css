@@ -232,3 +232,261 @@ footer p {
 footer p strong {
     color: #f2f2f2;
 }
+
+/**********************************************************************************
+
+********************************* HEADER ******************************************
+
+***********************************************************************************/
+
+.navbar {
+
+    padding: 15px 0 20px 0;
+
+    transition: all .3s linear;
+
+}
+
+
+
+.site-nav-wrapper {
+
+    padding: 0 30px;
+
+}
+
+
+
+.navbar-brand {
+
+    color: white;
+
+    font-weight: 800;
+
+    font-size: 3rem;
+
+}
+
+
+
+.navbar .navbar-nav {
+
+    transform: translateY(50%);
+
+}
+
+
+
+ul.navbar-nav > li > a {
+
+    font-family: 'Raleway', sans-serif;
+
+    color: #FFF;
+
+    font-size: 13px;
+
+    font-weight: 400;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+
+    padding: .4rem 0;
+
+    min-width: 100px;
+
+    text-align: center;
+
+}
+
+
+
+ul.navbar-nav > li > a:focus,
+
+ul.navbar-nav > li > a:hover {
+
+    background: none;
+
+}
+
+
+
+.scrolled-navbar {
+
+    padding: 10px 0;
+
+    box-shadow: 0 8px 6px -9px #999;
+
+    z-index: 2;
+
+}
+
+.nav-btns-div
+{
+    display:flex;
+    gap:15px;
+}
+
+
+
+.white-nav-top {
+
+    background: #FFF;
+
+}
+
+
+
+.blue-nav-top {
+
+    background-image: linear-gradient(to right, #004861 2%, #212226 82%);
+
+}
+
+
+
+.blue-nav-top ul.navbar-nav > li.active > a {
+
+    border-radius: 20px;
+
+    background: #00596A;
+
+    font-weight: 500;
+
+}
+
+
+
+.navbar-header {
+
+    position: relative;
+
+}
+
+
+
+/**MOBILE NAV**/
+
+#mobile-nav-open-btn {
+
+    font-size: 30px;
+
+    color: #FFF;
+
+    cursor: pointer;
+
+    z-index: 2;
+
+    position: absolute;
+
+    right: 0;
+
+    top: 6px;
+
+}
+
+
+
+#mobile-nav {
+
+    height: 0%;
+
+    width: 100%;
+
+    position: fixed;
+
+    top: 0;
+
+    left: 0;
+
+    z-index: 3;
+
+    background-color: rgba(255, 255, 255, .9);
+
+    transition: all .3s linear;
+
+    overflow-y: hidden;
+
+}
+
+
+
+#mobile-nav-close-btn {
+
+    font-family: 'Raleway', sans-serif;
+
+    font-size: 70px;
+
+    color: #212226;
+
+    font-weight: 400;
+
+    cursor: pointer;
+
+    position: absolute;
+
+    right: 15px;
+
+    top: -15px;
+
+    transition: all .3s linear;
+
+}
+
+
+
+#mobile-nav-content {
+
+    text-align: center;
+
+    width: 100%;
+
+    margin-top: 30px;
+
+    position: relative;
+
+    top: 10px;
+
+}
+
+
+
+#mobile-nav li {
+
+    margin-bottom: 20px;
+
+}
+
+
+
+#mobile-nav a {
+
+    font-family: 'Raleway', sans-serif;
+
+    font-size: 18px;
+
+    color: #212226;
+
+    font-weight: 400;
+
+    text-transform: uppercase;
+
+    display: inline;
+
+}
+
+
+
+#mobile-nav a:hover,
+
+#mobile-nav a:focus,
+
+#mobile-nav-close-btn:hover,
+
+#mobile-nav-close-btn:focus {
+
+    color: #212226;
+
+    background: none;
+
+}

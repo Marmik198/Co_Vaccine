@@ -20,7 +20,76 @@ $(window).on('load', function () {
     });
 });
 
+$(function () {
 
+    showHideNav();
+
+    $("#back-to-top").fadeOut();
+
+
+
+    $(window).scroll(function () {
+
+        showHideNav();
+
+    });
+
+
+
+    function showHideNav() {
+
+        if ($(window).scrollTop() > 50) {
+
+            $("nav").addClass("scrolled-navbar blue-nav-top");
+
+            $(".site-nav-wrapper").css("padding", "0px");
+
+            $("#back-to-top").fadeIn();
+
+        } else {
+
+            $("nav").removeClass("scrolled-navbar blue-nav-top");
+
+            $(".site-nav-wrapper").css("padding", "20px 0");
+
+            $("#back-to-top").fadeOut();
+
+        }
+
+    }
+
+
+
+    $("#mobile-nav-open-btn").click(function () {
+
+        $("#mobile-nav").css("height", "100%");
+
+    });
+
+
+
+    $("#mobile-nav-close-btn, #mobile-nav a").click(function () {
+
+        $("#mobile-nav").css("height", "0%");
+
+    });
+
+
+
+    $("a.smooth-scroll").click(function (event) {
+        event.preventDefault();
+
+        var section_id = $(this).attr("href");
+
+        $("html, body").animate({
+
+            scrollTop: $(section_id).offset().top + 30
+
+        }, 1250, "easeInOutExpo")
+
+    });
+
+});
 
 //let zipcode_form = $("#zipcode-form");
 //zipcode_form.submit(function () {

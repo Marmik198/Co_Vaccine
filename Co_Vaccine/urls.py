@@ -21,4 +21,5 @@ urlpatterns = [
     path('geo/', include('geo.urls')),
     path('', include('home.urls')),
     path('', include('users.urls')),
+    path('',include('home.urls')),
 ]
