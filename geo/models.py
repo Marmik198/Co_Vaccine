@@ -8,8 +8,8 @@ from django.db.models import Manager as GeoManager
 class Incidences(models.Model):
     name = models.CharField(max_length=50)
     location = models.PointField(srid=4326, max_length=500)
-    today = models.IntegerField(default=30)
-    one = models.IntegerField(default=30)
+    todays = models.IntegerField(default=30)
+    ones = models.IntegerField(default=30)
     two = models.IntegerField(default=30)
     three = models.IntegerField(default=30)
     four = models.IntegerField(default=30)

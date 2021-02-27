@@ -17,81 +17,201 @@
     <script type="text/javascript" src="{% static 'dist/leaflet.ajax.js' %}"></script>
 </head>
 <body>
-<h3>Welcome to Mumbai Police Geo Services {{ lat }}, {{ lng }}!</h3>
+<h3>Welcome to Co-Vaccine Geo Services {{ lat }}, {{ lng }}!</h3>
 <br>
+<select id="TenantReason" required class="form-control" name="tenantReason" style="margin-top: 10px">
+<option value="">Choose...</option>
+<option value="todays">Today</option>
+<option value="ones">One</option>
+<option value="two">Two</option>
+<option value="three">Three</option>
+<option value="four">Four</option>
+<option value="five">Five</option>
+</select>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+</script>
+{% leaflet_map "gis" callback="window.our_layers" %}
 <script type="text/javascript">
-	function our_layers(map,options){
-		var osm = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    var glob_map = '';
+    var jhol = 0;
+    var day = '';
+		$("#TenantReason").on("change", function(){
+		  day = $(this).val();
+		  if(window.map) {
+		      window.map.remove();
+          }
+            var option = '';
+		  our_layers(glob_map, option)
+
+        })
+    let j = 0;
+    function change() {
+        for(let i = 0; i < 7; i++) {
+        let str = new Date(Date.now() + ( 3600 * 1000 * 24 * i));
+        let s = str.toString();
+        let s1 = s.slice(4,15);
+        document.getElementById("TenantReason").options[j].text = s1;
+        j++
+        }
+    }
+    change()
+	function our_layers(map, options){
+        glob_map = map;
+        if(jhol == 0) {
+            var osm = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 				maxZoom: 19,
 				attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 			});
-		var OpenTopoMap = L.tileLayer('http://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
-			maxZoom: 17,
-			attribution: 'Map data: &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
-		});
-		var datasets = new L.GeoJSON.AJAX("{% url 'data' %}",{
+            var OpenTopoMap = L.tileLayer('http://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+                maxZoom: 17,
+                attribution: 'Map data: &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
+            });
+            var datasets = new L.GeoJSON.AJAX("{% url 'data' %}",{
 
-		});
+            });
 
-
-		var greenIcon = L.icon({
-            iconUrl: "https://www.pngkit.com/png/full/266-2668013_first-aid-symbol-health-and-safety-symbol.png",
-            iconSize: [28, 32],
-            iconAnchor: [12, 28],
-            popupAnchor: [0, -25]
-        })
-        var redIcon = L.icon({
-            iconUrl: "https://lh6.googleusercontent.com/proxy/4zYWpWwVyvw6SGAdqJt8kwFNy4pC1LXYsGuMZ7lSgjUWjZfCB67Ma58oKvBYZXZLP8G3gkvrAOFgrvviw2G8PBUX8AaHsy6CviFKR8Z6Ey_NPZJ5=s0-d",
-            iconSize: [28, 32],
-            iconAnchor: [12, 28],
-            popupAnchor: [0, -25]
-        })
-		var points = new L.GeoJSON.AJAX("{% url 'incidences' %}",{
-			pointToLayer: function (feature, latlng) {
-			    var theIcon = 3;
-                    if(feature.properties.slots_available >= 15) {
-                        theIcon = greenIcon;
+            var greenIcon = L.icon({
+                iconUrl: "https://www.pngkit.com/png/full/266-2668013_first-aid-symbol-health-and-safety-symbol.png",
+                iconSize: [28, 32],
+                iconAnchor: [12, 28],
+                popupAnchor: [0, -25]
+            })
+            var redIcon = L.icon({
+                iconUrl: "https://lh6.googleusercontent.com/proxy/4zYWpWwVyvw6SGAdqJt8kwFNy4pC1LXYsGuMZ7lSgjUWjZfCB67Ma58oKvBYZXZLP8G3gkvrAOFgrvviw2G8PBUX8AaHsy6CviFKR8Z6Ey_NPZJ5=s0-d",
+                iconSize: [28, 32],
+                iconAnchor: [12, 28],
+                popupAnchor: [0, -25]
+            })
+            var blackIcon = L.icon({
+                iconUrl: "https://drive.google.com/file/d/13ryHkmK7TARt28hHYoueHCXvTTBTznkt/view?usp=sharing",
+                iconSize: [28, 32],
+                iconAnchor: [12, 28],
+                popupAnchor: [0, -25]
+            })
+            var orangeIcon = L.icon({
+                iconUrl: "https://drive.google.com/file/d/1fOFn_AG_AmNuU68eLnrAmrZZrrcxijzQ/view?usp=sharing",
+                iconSize: [28, 32],
+                iconAnchor: [12, 28],
+                popupAnchor: [0, -25]
+            })
+            var slots = 0
+            var points = new L.GeoJSON.AJAX("{% url 'incidences' %}",{
+                pointToLayer: function (feature, latlng) {
+                    var theIcon = 3;
+                    if(day == 'todays') {
+                        slots = feature.properties.todays.toString()
+                    } else if(day == 'ones') {
+                        slots = feature.properties.ones.toString()
+                    } else if(day == 'two') {
+                        slots = feature.properties.two.toString()
+                    } else if(day == 'three') {
+                        slots = feature.properties.three.toString()
+                    } else if(day == 'four') {
+                        slots = feature.properties.four.toString()
                     } else {
-                        theIcon = redIcon;
+                        slots = feature.properties.five.toString()
                     }
-                return L.marker(latlng, {
-                    icon: theIcon,
-                    title: feature.properties.NAME,
-                    riseOnHover: true
-                });
-            },
-			onEachFeature: function(feature,layer){
-				layer.bindPopup("Center name : "+feature.properties.name.toString()+"<br>"+"<h1 style='color: red'>"+(feature.properties.vaccine_available).toString()+"</h1>" +"Slots Available : "+feature.properties.slots_available.toString());
-			}
+                    if(slots >= 20) {
+                        theIcon = greenIcon
+                    } else if(slots > 10) {
+                        theIcon = orangeIcon
+                    } else if(slots > 0) {
+                        theIcon = redIcon
+                    } else {
+                        theIcon = blackIcon
+                    }
+                    return L.marker(latlng, {
+                        icon: theIcon,
+                        title: feature.properties.NAME,
+                        riseOnHover: true
+                    });
+                },
+                onEachFeature: function(feature,layer){
+                    layer.bindPopup("Center name : "+feature.properties.name.toString()+"<br>"+"<h1 style='color: red'>"+(feature.properties).toString()+"</h1>" +"Slots Available : "+slots);
+                }
 
-		});
+            });
 
-		datasets.addTo(map);
-		points.addTo(map);
+            datasets.addTo(map);
+            points.addTo(map);
 
 
-		var baseLayers = {
-			"OSM": osm,
-			"OpenTopoMap":OpenTopoMap
-		}
+            var baseLayers = {
+                "OSM": osm,
+                "OpenTopoMap":OpenTopoMap
+            }
 
-		var groupedOverlays = {
-		  "Layers": {
-		    "names": datasets,
-		    "incidences": points
-		  }
+            var groupedOverlays = {
+              "Layers": {
+                "names": datasets,
+                "incidences": points
+              }
 
-		};
+            };
 
-		L.control.groupedLayers(baseLayers, groupedOverlays).addTo(map);
+            L.control.groupedLayers(baseLayers, groupedOverlays).addTo(map);
 
-		var routing =  L.Routing.control({
-		  waypoints: [
-		    L.latLng({{ lat }}, {{ lng }}),
-		    L.latLng({{ near_lat }}, {{ near_lng }}),
-          ]
-		}).addTo(map);
-	}
+            var routing =  L.Routing.control({
+              waypoints: [
+                L.latLng({{ lat }}, {{ lng }}),
+                L.latLng({{ near_lat }}, {{ near_lng }}),
+              ]
+            }).addTo(map);
+        } else {
+            var greenIcon = L.icon({
+                iconUrl: "https://www.pngkit.com/png/full/266-2668013_first-aid-symbol-health-and-safety-symbol.png",
+                iconSize: [28, 32],
+                iconAnchor: [12, 28],
+                popupAnchor: [0, -25]
+            })
+            var redIcon = L.icon({
+                iconUrl: "https://lh6.googleusercontent.com/proxy/4zYWpWwVyvw6SGAdqJt8kwFNy4pC1LXYsGuMZ7lSgjUWjZfCB67Ma58oKvBYZXZLP8G3gkvrAOFgrvviw2G8PBUX8AaHsy6CviFKR8Z6Ey_NPZJ5=s0-d",
+                iconSize: [28, 32],
+                iconAnchor: [12, 28],
+                popupAnchor: [0, -25]
+            })
+            var slots = 0
+            var points = new L.GeoJSON.AJAX("{% url 'incidences' %}",{
+                pointToLayer: function (feature, latlng) {
+                    var theIcon = 3;
+                    if(day == 'todays') {
+                        slots = feature.properties.todays.toString()
+                    } else if(day == 'ones') {
+                        slots = feature.properties.ones.toString()
+                    } else if(day == 'two') {
+                        slots = feature.properties.two.toString()
+                    } else if(day == 'three') {
+                        slots = feature.properties.three.toString()
+                    } else if(day == 'four') {
+                        slots = feature.properties.four.toString()
+                    } else {
+                        slots = feature.properties.five.toString()
+                    }
+                    if(slots >= 20) {
+                        theIcon = greenIcon
+                    } else if(slots > 10) {
+                        theIcon = greenIcon
+                    } else if(slots > 0) {
+                        theIcon = redIcon
+                    } else {
+                        theIcon = redIcon
+                    }
+                    return L.marker(latlng, {
+                        icon: theIcon,
+                        title: feature.properties.NAME,
+                        riseOnHover: true
+                    });
+                },
+                onEachFeature: function(feature,layer){
+                    layer.bindPopup("Center name : "+feature.properties.name.toString()+"<br>"+"<h1 style='color: red'>"+(feature.properties).toString()+"</h1>" +"Slots Available : "+slots);
+                }
+
+            });
+
+            points.addTo(map);
+        }
+		jhol = 1;
+    }
 
 </script>
 {% leaflet_map "gis" callback="window.our_layers" %}

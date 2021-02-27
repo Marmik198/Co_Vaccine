@@ -19,16 +19,11 @@ def map_home(request):
     	ip = request.META.get('REMOTE_ADDR')
     g = GeoIP2()
     (lat, lng) = g.lat_lon(ip)
-    template_name = 'index.html'
-    # pnt = Incidences.objects.get(name ='KJSCE').location
     pnt = Point(lat, lng, srid=4326)
     inc_near = Incidences.objects.annotate(
         distance=Distance('location', pnt)
-    ).order_by('distance').first()
+    ).order_by('distance').last()
     string = str(inc_near.location)
-    # near_lng = float(string[17:26])
-    # near_lat = float(string[26:35])
-    print(string)
     near_lat = ""
     near_lng = ""
     take1 = True
@@ -43,9 +38,9 @@ def map_home(request):
             if i == " ":
                 take1 = False
             elif take1:
-                near_lat += i
-            else:
                 near_lng += i
+            else:
+                near_lat += i
 
 
 
