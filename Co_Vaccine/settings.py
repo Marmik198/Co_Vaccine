@@ -45,7 +45,7 @@ SECRET_KEY = 'kz4%s^8p(^wn4=bo(&j$ls-q%q^a0o4$3)0*#y(2ll+hb5)*h1'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://covaccine.herokuapp.com/','127.0.0.1']
+ALLOWED_HOSTS = ['covaccine.herokuapp.com','127.0.0.1']
 
 
 # Application definition
