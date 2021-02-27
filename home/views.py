@@ -23,13 +23,15 @@ def appointment_form_submission(request):
     current_symptom = request.POST.getlist('symptoms[]')
     covid_status = request.POST['radio']
     travel_history = request.POST['radio-1']
+    date = request.POST['date']
     dose = request.POST['dose']
     desc = request.POST['desc']
     image = request.FILES['image']
 
     appointmentForm = Appointment(firstName=firstName,lastname=lastname,aadhar=aadhar,contact=contact,age=age,gender=gender,
                                    Flatno=Flatno,Address=Address,City=City,State=State,Country=Country,medical_issues=medical_issues
-                                   ,current_symptom=current_symptom,covid_status=covid_status,travel_history=travel_history,dose=dose,desc=desc,image=image)
+                                   ,current_symptom=current_symptom,covid_status=covid_status,travel_history=travel_history,date=date,dose=dose,desc=desc,image=image)
 
     appointmentForm.save()
+
     return redirect('home')

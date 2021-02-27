@@ -1,12 +1,12 @@
+from django.contrib.auth.models import User
 from django.db import models
 
 # Create your models here.
+from django.utils import timezone
+
 
 class Appointment(models.Model):
-    # covid19 = (
-    #     ('Y', 'Yes'),
-    #     ('N', 'No'),
-    # )
+    user = models.ForeignKey(User, on_delete=models.CASCADE ,blank=True)
     firstName = models.CharField(max_length=100,blank=True)
     lastname = models.CharField(max_length=100,blank=True)
     aadhar = models.CharField(max_length=16,blank=True)
@@ -22,6 +22,7 @@ class Appointment(models.Model):
     current_symptom = models.CharField(max_length=50,blank=True,default="N.A.")
     covid_status = models.CharField(max_length=30,default="Negative")
     travel_history = models.CharField(max_length=30,default="No")
+    date = models.DateField(blank=True,null=True,default=timezone.now)
     dose = models.CharField(max_length=30,blank=True)
     desc = models.CharField(max_length=255,blank=True)
     image = models.ImageField(default='default.png',upload_to='appointment_verification')
