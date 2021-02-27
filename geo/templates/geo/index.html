@@ -14,12 +14,31 @@
 	<link rel="stylesheet" type="text/css" href="{% static 'leaflet-groupedlayercontrol/leaflet.groupedlayercontrol.css' %}">
 	<script type="text/javascript" src="{% static 'leaflet-groupedlayercontrol/leaflet.groupedlayercontrol.js' %}" ></script>
     <script type="text/javascript" src="{% static 'routing/leaflet-routing-machine.js' %}" ></script>
+     <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'home/css/bootstrap.min.css' %}">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'home/css/styles.css' %}">
     <script type="text/javascript" src="{% static 'dist/leaflet.ajax.js' %}"></script>
 </head>
 <body>
-<h3>Welcome to Co-Vaccine Geo Services {{ lat }}, {{ lng }}!</h3>
+
+    <section class="login">
+        <div class="col-md-12">
+            <div class="section-heading">
+                <h1><b>CO-VACCINE</b></h1>
+            </div>
+        </div>
+    </section>
+    <br><br>
+
+<h3 align="center">Welcome to Co-Vaccine Geo Services {{ lat }}, {{ lng }}!</h3>
 <br>
-<select id="TenantReason" required class="form-control" name="tenantReason" style="margin-top: 10px">
+<select id="TenantReason" required class="form-control" name="tenantReason" style="margin: 20px auto 70px; width: 30%;">
 <option value="">Choose...</option>
 <option value="todays">Today</option>
 <option value="ones">One</option>
@@ -28,7 +47,9 @@
 <option value="four">Four</option>
 <option value="five">Five</option>
 </select>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" style="margin: 0 auto">
 </script>
 {% leaflet_map "gis" callback="window.our_layers" %}
 <script type="text/javascript">
@@ -83,6 +104,7 @@
                 popupAnchor: [0, -25]
             })
             var blackIcon = L.icon({
+
                 iconUrl: "{% static 'img/black.png' %}",
                 iconSize: [28, 32],
                 iconAnchor: [12, 28],
@@ -227,5 +249,13 @@
 
 </script>
 {% leaflet_map "gis" callback="window.our_layers" %}
+
+    <footer>
+        <div class="container">
+            <div class="row text-center">
+                <p>&copy; Copyright <strong>Co-Vaccine</strong>. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
