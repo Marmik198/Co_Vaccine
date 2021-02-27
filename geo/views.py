@@ -21,15 +21,34 @@ def map_home(request):
     (lat, lng) = g.lat_lon(ip)
     template_name = 'index.html'
     # pnt = Incidences.objects.get(name ='KJSCE').location
-    lat = lat
-    lng = lng
     pnt = Point(lat, lng, srid=4326)
     inc_near = Incidences.objects.annotate(
         distance=Distance('location', pnt)
     ).order_by('distance').first()
     string = str(inc_near.location)
-    near_lng = float(string[17:26])
-    near_lat = float(string[26:35])
+    # near_lng = float(string[17:26])
+    # near_lat = float(string[26:35])
+    print(string)
+    near_lat = ""
+    near_lng = ""
+    take1 = True
+    go = False
+    for i in string:
+        if i == '(':
+            go = True
+            continue
+        if i == ')':
+            break
+        if go:
+            if i == " ":
+                take1 = False
+            elif take1:
+                near_lat += i
+            else:
+                near_lng += i
+
+
+
     # print(near_lat)
     # print(near_lng)
     # print(inc_near)
