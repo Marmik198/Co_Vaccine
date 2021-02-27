@@ -83,13 +83,13 @@
                 popupAnchor: [0, -25]
             })
             var blackIcon = L.icon({
-                iconUrl: "https://drive.google.com/file/d/13ryHkmK7TARt28hHYoueHCXvTTBTznkt/view?usp=sharing",
+                iconUrl: "{% static 'img/black.png' %}",
                 iconSize: [28, 32],
                 iconAnchor: [12, 28],
                 popupAnchor: [0, -25]
             })
             var orangeIcon = L.icon({
-                iconUrl: "https://drive.google.com/file/d/1fOFn_AG_AmNuU68eLnrAmrZZrrcxijzQ/view?usp=sharing",
+                iconUrl: "{% static 'img/orange.png' %}",
                 iconSize: [28, 32],
                 iconAnchor: [12, 28],
                 popupAnchor: [0, -25]
@@ -170,6 +170,18 @@
                 iconAnchor: [12, 28],
                 popupAnchor: [0, -25]
             })
+            var blackIcon = L.icon({
+                iconUrl: "{% static 'img/black.png' %}",
+                iconSize: [28, 32],
+                iconAnchor: [12, 28],
+                popupAnchor: [0, -25]
+            })
+            var orangeIcon = L.icon({
+                iconUrl: "{% static 'img/orange.png' %}",
+                iconSize: [28, 32],
+                iconAnchor: [12, 28],
+                popupAnchor: [0, -25]
+            })
             var slots = 0
             var points = new L.GeoJSON.AJAX("{% url 'incidences' %}",{
                 pointToLayer: function (feature, latlng) {
@@ -190,11 +202,11 @@
                     if(slots >= 20) {
                         theIcon = greenIcon
                     } else if(slots > 10) {
-                        theIcon = greenIcon
+                        theIcon = orangeIcon
                     } else if(slots > 0) {
                         theIcon = redIcon
                     } else {
-                        theIcon = redIcon
+                        theIcon = blackIcon
                     }
                     return L.marker(latlng, {
                         icon: theIcon,
