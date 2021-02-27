@@ -40,4 +40,7 @@ def register(request):
 def verify_email_page(request):
     return render(request, 'users/verify-email-page.html')
 
+def reset_password(request):
+    return render(request, 'users/reset_password.html.html')
+
 
