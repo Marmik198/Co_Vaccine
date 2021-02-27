@@ -1,0 +1,43 @@
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+</head>
+<body>
+    <div class="content-section p-50" >
+        <form method="POST" style="width: 300px;margin: auto">
+            {% csrf_token %}
+            {% if messages %}
+                {%for message in messages%}
+                    <div class="alert alert-{{ message.tags }}">
+                        {{ message }}
+                    </div>
+                {%endfor%}
+            {%endif%}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-1">Login</legend>
+                {{ form|crispy }}
+            </fieldset>
+            <div class="form-group text-center">
+                <button class="btn btn-police" type="submit">Login</button>
+            </div>
+        </form>
+        <div class="border-top pt-3 text-center">
+            <small class="text-muted">
+                Do You Need An Account? <a class="ml-2" href="{% url 'register' %}">Sign Up</a>
+            </small>
+        </div>
+{#        <div class="pt-3 text-center">#}
+{#            <small class="text-muted">#}
+{#                Forgot Password? <a class="ml-2" href="{% url 'reset_password' %}">Reset Password</a>#}
+{#            </small>#}
+{#        </div>#}
+    </div>
+</body>
+</html>
+
+
+
+
