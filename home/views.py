@@ -27,8 +27,9 @@ def appointment_form_submission(request):
     dose = request.POST['dose']
     desc = request.POST['desc']
     image = request.FILES['image']
+    user = request.user
 
-    appointmentForm = Appointment(firstName=firstName,lastname=lastname,aadhar=aadhar,contact=contact,age=age,gender=gender,
+    appointmentForm = Appointment(user=user,firstName=firstName,lastname=lastname,aadhar=aadhar,contact=contact,age=age,gender=gender,
                                    Flatno=Flatno,Address=Address,City=City,State=State,Country=Country,medical_issues=medical_issues
                                    ,current_symptom=current_symptom,covid_status=covid_status,travel_history=travel_history,date=date,dose=dose,desc=desc,image=image)
 

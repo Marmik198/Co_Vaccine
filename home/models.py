@@ -6,7 +6,7 @@ from django.utils import timezone
 
 
 class Appointment(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE ,blank=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE ,blank=True,null=True)
     firstName = models.CharField(max_length=100,blank=True)
     lastname = models.CharField(max_length=100,blank=True)
     aadhar = models.CharField(max_length=16,blank=True)
