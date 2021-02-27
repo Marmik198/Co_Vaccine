@@ -1,4 +1,3 @@
-
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -62,7 +61,14 @@
 
                             <li><a class="smooth-scroll" href="#about">About</a></li>
 
+                            {% if user.is_authenticated %}
+                            <li class="rs"><a href="{% url 'logout' %}" class="rside btn-general btn-gradient">Logout</a></li>
+                            {% else %}
+                            <li class="rs"><a href="{% url 'login' %}" class="rside btn-general btn-gradient">Login</a></li>
+                            <li class="rs"><a href="{% url 'register' %}" class="rside btn-general btn-gradient">Register</a></li>
+                            {% endif %}
                         </ul>
+                        
 
                     </div>
 
@@ -88,6 +94,13 @@
 
                             <li><a class="smooth-scroll" href="#about">About</a></li>
 
+                            {% if user.is_authenticated %}
+                            <li class="rs"><a href="{% url 'logout' %}" class="rside btn-general btn-gradient">Logout</a></li>
+                            {% else %}
+                            <li class="rs"><a href="{% url 'login' %}" class="rside btn-general btn-gradient">Login</a></li>
+                            <li class="rs"><a href="{% url 'register' %}" class="rside btn-general btn-gradient">Register</a></li>
+                            {% endif %}
+
                         </ul>
 
                     </div>
@@ -101,6 +114,7 @@
     </nav>
 
 </header>
+
 <body data-spy="scroll" data-target=".navbar" data-offset="65">
 
     <section id="home">
@@ -116,21 +130,26 @@
                             <li class="feature-list-item">Risus nec luctus mauris orci auctor purus euismod pretium purus pretium ligula rutrum tempor sapien and luctus</li>
                             <li class="feature-list-item">Nemo ipsam egestas volute turpis dolores ut aliquam quaerat sodales sapien undo pretium purus feugiat dolor impedit</li>
                         </ul>
+                        <p><a href="#book" class="btn-general btn-gradient">Book An Appointment</a></p>
 
+
+
+<!--
                         <div class="nav-btns-div">
                             {% if user.is_authenticated %}
-                                <a class="btn-general btn-gradient" href="{% url 'logout' %}">Logout</a>
+                            <a class="btn-general btn-gradient" href="{% url 'logout' %}">Logout</a>
                             {%else %}
-                                <a class="btn-general btn-gradient" href="{% url 'register' %}">Register</a>
-                                <a class="btn-general btn-gradient" href="{% url 'login' %}">Login</a>
+                            <a class="btn-general btn-gradient" href="{% url 'register' %}">Register</a>
+                            <a class="btn-general btn-gradient" href="{% url 'login' %}">Login</a>
                             {% endif %}
                         </div>
+-->
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
+    
     <section id="find">
         <div class="content-box-lg">
             <div class="container">
@@ -154,6 +173,46 @@
                         </form>
                     </div>
 -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+<section id="book">
+        <div class="content-box-md space">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="section-heading">
+                            <h3>Book Appointments!</h3>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <h5 style="margin: 45px 0px;">Who can use this Service?</h5>
+                        <p>You can only use this service if any of the following apply:</p>
+                        <ul>
+                            <li>You are aged 55 or above</li>
+                            <li>You have previously received a letter saying that you are at high risk from coronavirus.</li>
+                            <li>You are an eligible frontline health worker</li>
+                        </ul>
+                        <div class="yellow">
+                            <h4>If you are not eligible yet:</h4>
+                            <p>Wait to be contacted. We will let you know when its your turn to have the vaccine.</p>
+                        </div>
+                        <h5 style="margin: 45px 0px;">Book a Appointment</h5>
+                        <p>You need to:</p>
+                        <ul>
+                            <li>have 2 doses of the coronavirus vaccine at 2 appointments</li>
+                            <li>have 2 doses of the coronavirus vaccine at 2 appointments</li>
+                            <li>get the 2nd dose 11 to 12 weeks after getting your 1st dose</li>
+                            <li style="padding-top: 20px">You can use this service for someone else.</li>
+                        </ul>
+                        <div class="green">If you've had a positive COVID-19 test, you should wait 4 weeks from the date you had the test before you book an appointment.</div>
+                        <div>
+                            <a href="#" class="btn-general btn-gradient mt20">Book your Appointment</a>
+                        </div>
+                        <br><br>
+                    </div>
                 </div>
             </div>
         </div>

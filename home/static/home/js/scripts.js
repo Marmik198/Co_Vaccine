@@ -42,6 +42,8 @@ $(function () {
 
             $("nav").addClass("scrolled-navbar blue-nav-top");
 
+            $(".nav li.rs a").addClass("hr");
+
             $(".site-nav-wrapper").css("padding", "0px");
 
             $("#back-to-top").fadeIn();
@@ -49,6 +51,8 @@ $(function () {
         } else {
 
             $("nav").removeClass("scrolled-navbar blue-nav-top");
+
+            $(".nav li.rs a").removeClass("hr");
 
             $(".site-nav-wrapper").css("padding", "20px 0");
 
