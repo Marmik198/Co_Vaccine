@@ -19,12 +19,12 @@ def map_home(request):
     	ip = request.META.get('REMOTE_ADDR')
     g = GeoIP2()
     (lat, lng) = g.lat_lon(ip)
-    pnt = Point(lat, lng, srid=4326)
+    # lat = 19.0748
+    # lng = 72.8856
+    pnt = Point(lng, lat, srid=4326)
     inc_near = Incidences.objects.annotate(
         distance=Distance('location', pnt)
     ).order_by('distance').first()
-
-
     # print(inc_near)
     # name = Incidences.objects.filter('name' == inc_near)
     string = str(inc_near.location)
