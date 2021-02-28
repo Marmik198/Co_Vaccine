@@ -22,7 +22,7 @@ def map_home(request):
     pnt = Point(lat, lng, srid=4326)
     inc_near = Incidences.objects.annotate(
         distance=Distance('location', pnt)
-    ).order_by('distance').last()
+    ).order_by('distance').first()
 
 
     # print(inc_near)
@@ -65,5 +65,6 @@ def maha_datasets(request):
     return HttpResponse(names,content_type='json')
 
 def point_datasets(request):
+    run()
     points = serialize('geojson', Incidences.objects.all())
     return HttpResponse(points,content_type='json')
