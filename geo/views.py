@@ -12,15 +12,13 @@ from django.contrib.gis.geos import Point
 
 
 def map_home(request):
-    # x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
-    # if x_forwarded_for:
-    # 	ip = x_forwarded_for.split(',')[0]
-    # else:
-    # 	ip = request.META.get('REMOTE_ADDR')
-    # g = GeoIP2()
-    # (lat, lng) = g.lat_lon(ip)
-    lat = 19
-    lng = 72
+    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+    if x_forwarded_for:
+    	ip = x_forwarded_for.split(',')[0]
+    else:
+    	ip = request.META.get('REMOTE_ADDR')
+    g = GeoIP2()
+    (lat, lng) = g.lat_lon(ip)
     pnt = Point(lat, lng, srid=4326)
     inc_near = Incidences.objects.annotate(
         distance=Distance('location', pnt)
