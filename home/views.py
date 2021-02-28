@@ -1,9 +1,15 @@
 from datetime import *
+from random import randint
 
 from django.contrib import messages
 from django.shortcuts import render, redirect
+from django.template import RequestContext
+
 from .models import Appointment
 from geo import models
+from django.conf import settings
+from django.template.loader import render_to_string
+from django.core.mail import EmailMessage
 
 def home(request):
     return render(request, 'home/home.html')
@@ -63,6 +69,7 @@ def appointment_form_submission(request):
     curr_date6_formatted = curr_date6.strftime('%Y-%m-%d')
 
     obj = models.Incidences.objects.get(name=appointmentForm.center)
+    obj_name = obj.name
     if curr_date == appointmentForm.date:
         temp = obj.todays
         print(obj.todays)
@@ -107,7 +114,24 @@ def appointment_form_submission(request):
         obj.five = temp
         obj.save()
 
-    return redirect('home')
+    success(request, obj_name)
+    return render(request, 'home/home.html')
 
 def faq(request):
     return render(request, 'home/faq.html')
+
+def success(request,  obj):
+    uniqueId = 'GR'
+    for i in range(0, 9):
+        uniqueId = uniqueId + str(randint(0, 9))
+    template = render_to_string('home/email_template.html', {'name': request.user.username, 'rand':uniqueId})
+    email = EmailMessage(
+        'Thanks',
+        template,
+        settings.EMAIL_HOST_USER,
+        [request.user.email],
+    )
+    email.fail_silently = False
+    email.send()
+
+
