@@ -65,6 +65,5 @@ def maha_datasets(request):
     return HttpResponse(names,content_type='json')
 
 def point_datasets(request):
-    run()
     points = serialize('geojson', Incidences.objects.all())
     return HttpResponse(points,content_type='json')
