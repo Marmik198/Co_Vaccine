@@ -23,6 +23,5 @@ urlpatterns = [
     path('geo/', include('geo.urls')),
     path('', include('home.urls')),
     path('', include('users.urls')),
-    path('',include('home.urls')),
     path('appointment_form_submission',home_views.appointment_form_submission,name='appointment_form_submission'),
 ]+static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)

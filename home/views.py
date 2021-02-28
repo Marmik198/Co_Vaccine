@@ -108,3 +108,6 @@ def appointment_form_submission(request):
         obj.save()
 
     return redirect('home')
+
+def faq(request):
+    return render(request, 'home/faq.html')
