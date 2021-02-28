@@ -1,4 +1,6 @@
 from __future__ import unicode_literals
+
+from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
 from django.contrib.gis.db import models
 from django.db.models import Manager as GeoManager
@@ -6,15 +8,18 @@ from django.db.models import Manager as GeoManager
 
 
 class Incidences(models.Model):
+
     name = models.CharField(max_length=50)
     location = models.PointField(srid=4326, max_length=500)
-    todays = models.IntegerField(default=30)
-    ones = models.IntegerField(default=30)
-    two = models.IntegerField(default=30)
-    three = models.IntegerField(default=30)
-    four = models.IntegerField(default=30)
-    five = models.IntegerField(default=30)
+    todays = models.IntegerField(default=30,validators=[MinValueValidator(0)])
+    ones = models.IntegerField(default=30,validators=[MinValueValidator(0)])
+    two = models.IntegerField(default=30,validators=[MinValueValidator(0)])
+    three = models.IntegerField(default=30,validators=[MinValueValidator(0)])
+    four = models.IntegerField(default=30,validators=[MinValueValidator(0)])
+    five = models.IntegerField(default=30,validators=[MinValueValidator(0)])
     objects = GeoManager()
+
+
 
     def __str__(self):
         return self.name

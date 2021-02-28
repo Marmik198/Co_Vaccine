@@ -25,6 +25,9 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{% static 'home/css/styles.css' %}">
 </head>
+
+
+<body data-spy="scroll" data-target=".navbar" data-offset="65">
 <header>
 
     <nav class="navbar navbar-fixed-top navbar-gradient">
@@ -62,13 +65,13 @@
                             <li><a class="smooth-scroll" href="#about">About</a></li>
 
                             {% if user.is_authenticated %}
-                            <li class="rs"><a href="{% url 'logout' %}" class="rside btn-general btn-gradient">Logout</a></li>
+                                <li class="rs"><a href="{% url 'logout' %}" class="rside btn-general btn-gradient">Logout</a></li>
                             {% else %}
-                            <li class="rs"><a href="{% url 'login' %}" class="rside btn-general btn-gradient">Login</a></li>
-                            <li class="rs"><a href="{% url 'register' %}" class="rside btn-general btn-gradient">Register</a></li>
+                                <li class="rs"><a href="{% url 'login' %}" class="rside btn-general btn-gradient">Login</a></li>
+                                <li class="rs"><a href="{% url 'register' %}" class="rside btn-general btn-gradient">Register</a></li>
                             {% endif %}
                         </ul>
-                        
+
 
                     </div>
 
@@ -95,10 +98,10 @@
                             <li><a class="smooth-scroll" href="#about">About</a></li>
 
                             {% if user.is_authenticated %}
-                            <li class="rs"><a href="{% url 'logout' %}" class="rside btn-general btn-gradient">Logout</a></li>
+                                <li class="rs"><a href="{% url 'logout' %}" class="rside btn-general btn-gradient">Logout</a></li>
                             {% else %}
-                            <li class="rs"><a href="{% url 'login' %}" class="rside btn-general btn-gradient">Login</a></li>
-                            <li class="rs"><a href="{% url 'register' %}" class="rside btn-general btn-gradient">Register</a></li>
+                                <li class="rs"><a href="{% url 'login' %}" class="rside btn-general btn-gradient">Login</a></li>
+                                <li class="rs"><a href="{% url 'register' %}" class="rside btn-general btn-gradient">Register</a></li>
                             {% endif %}
 
                         </ul>
@@ -115,9 +118,17 @@
 
 </header>
 
-<body data-spy="scroll" data-target=".navbar" data-offset="65">
-
     <section id="home">
+{#    <div class="alert">#}
+{#        {% if messages %}#}
+{#            {%for message in messages%}#}
+{#                <div class="alert alert-{{ message.tags }}">#}
+{#                    {{ message }}#}
+{#                </div>#}
+{#            {%endfor%}#}
+{#        {%endif%}#}
+{#    </div>#}
+
         <div class="row">
             <div class="col-md-12">
                 <img src="{% static 'home/Images/hero.jpg' %}" alt="home-image" class="img-responsive">

@@ -26,7 +26,7 @@
     <script type="text/javascript" src="{% static 'dist/leaflet.ajax.js' %}"></script>
 </head>
 <body>
-
+<p style="display: none" id="none"></p>
     <section class="login">
         <div class="col-md-12">
             <div class="section-heading">
@@ -39,13 +39,13 @@
 <h3 align="center">Welcome to Co-Vaccine Geo Services {{ lat }}, {{ lng }}!</h3>
 <br>
 <select id="TenantReason" required class="form-control" name="tenantReason" style="margin: 20px auto 70px; width: 30%;">
-<option value="">Choose...</option>
-<option value="todays">Today</option>
-<option value="ones">One</option>
-<option value="two">Two</option>
-<option value="three">Three</option>
-<option value="four">Four</option>
-<option value="five">Five</option>
+{#    <option value="">Choose...</option>#}
+    <option value="todays">Today</option>
+    <option value="ones">One</option>
+    <option value="two">Two</option>
+    <option value="three">Three</option>
+    <option value="four">Four</option>
+    <option value="five">Five</option>
 </select>
 
 
@@ -67,7 +67,7 @@
         })
     let j = 0;
     function change() {
-        for(let i = 0; i < 7; i++) {
+        for(let i = 0; i < 6; i++) {
         let str = new Date(Date.now() + ( 3600 * 1000 * 24 * i));
         let s = str.toString();
         let s1 = s.slice(4,15);
@@ -149,8 +149,24 @@
                     });
                 },
                 onEachFeature: function(feature,layer){
-layer.bindPopup("<h1 style='font-size: 18px;text-transform: capitalize'>"+"Center name : "+feature.properties.name.toString()+
-                        "<br><br>"+"Slots Available : "+ slots+"</h1> <br> <a class='rside btn-general btn-gradient' href='../../../appointment'> Book Appointment </a>");
+
+                    custom ="<h1 style='font-size: 18px;text-transform: capitalize'>"+"Center name : "+feature.properties.name.toString()+
+                        "<br><br>"+"Slots Available : "+ slots+"</h1> <br> <a class='rside btn-general btn-gradient' href='../../../appointment'> Book Appointment </a>"
+
+                    html_disabled = "<h1 style='font-size: 18px;text-transform: capitalize'>"+"Center name : "+feature.properties.name.toString()+
+                        "<br><br>"+"Slots Available : "+ slots+"</h1> <br> <a class='rside btn-general disabled' href='../../../appointment'> Book Appointment </a>"
+
+                    console.log(slots)
+                    if(slots<=0)
+                    {
+                        layer.bindPopup(html_disabled);
+                    }
+                    else
+                    {
+                        layer.bindPopup(custom);
+                    }
+
+
                 }
 
             });

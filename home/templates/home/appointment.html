@@ -220,13 +220,12 @@
                 </div>
 
                 <div class="form-group col-md-4">
-                    <label class="form-label" for="tenantReason">Place Of Appointment <span style="color:red">*</span></label>
-                    <select id="TenantReason" required class="form-control" name="tenantReason" style="margin-top: 10px" onchange="choice(this);">
+                    <label class="form-label" for="center">Place Of Appointment <span style="color:red">*</span></label>
+                    <select id="center" required class="form-control" name="center" style="margin-top: 10px">
                         <option value="">Choose...</option>
-                        <option value="Education">Education</option>
-                        <option value="Work">Work</option>
-                        <option value="Medical">Medical</option>
-                        <option value="Others">Others</option>
+                        {% for inc in all_incidences %}
+                            <option value="{{ inc.name }}">{{ inc.name }}</option>
+                        {% endfor %}
                     </select>
                 </div>
             </div>

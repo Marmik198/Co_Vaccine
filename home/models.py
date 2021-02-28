@@ -24,6 +24,7 @@ class Appointment(models.Model):
     travel_history = models.CharField(max_length=30,default="No")
     date = models.DateField(blank=True,null=True,default=timezone.now)
     dose = models.CharField(max_length=30,blank=True)
+    center = models.CharField(max_length=50,blank=True)
     desc = models.CharField(max_length=255,blank=True)
     image = models.ImageField(default='default.png',upload_to='appointment_verification')
 

@@ -25,6 +25,10 @@ def map_home(request):
     inc_near = Incidences.objects.annotate(
         distance=Distance('location', pnt)
     ).order_by('distance').last()
+
+
+    # print(inc_near)
+    # name = Incidences.objects.filter('name' == inc_near)
     string = str(inc_near.location)
     near_lat = ""
     near_lng = ""
@@ -44,19 +48,18 @@ def map_home(request):
             else:
                 near_lat += i
 
-
-
-    # print(near_lat)
-    # print(near_lng)
-    # print(inc_near)
-
+    all_incidences =Incidences.objects.all()
     context = {
         'lng': lng,
         'lat': lat,
         'near_lat': near_lat,
         'near_lng': near_lng,
+        'all_incidences':all_incidences,
     }
-    return render(request, 'geo/index.html', context)
+
+    return render(request, 'geo/index.html', context )
+
+
 
 
 def maha_datasets(request):
