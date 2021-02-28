@@ -55,7 +55,7 @@
 <script type="text/javascript">
     var glob_map = '';
     var jhol = 0;
-    var day = '';
+    var day = 'todays';
 		$("#TenantReason").on("change", function(){
 		  day = $(this).val();
 		  if(window.map) {
@@ -149,17 +149,13 @@
                     });
                 },
                 onEachFeature: function(feature,layer){
-                    if(slots>0)
-                    {
+
+                    if(slots>=0) {
                         layer.bindPopup("<h1 style='font-size: 18px;text-transform: capitalize'>"+"Center name : "+feature.properties.name.toString()+
-                            "<br><br>"+"Slots Available : "+ slots+"</h1> <br> <a class='rside btn-general btn-gradient' href='../../../appointment'> Book Appointment </a>"
-                        );
-                    }
-                    else
-                    {
+                        "<br><br>"+"Slots Available : "+ slots+"</h1> <br> <a class='rside btn-general btn-gradient' href='../../../appointment'> Book Appointment </a>");
+                    } else {
                         layer.bindPopup("<h1 style='font-size: 18px;text-transform: capitalize'>"+"Center name : "+feature.properties.name.toString()+
-                            "<br><br>"+"Slots Available : "+ slots+"</h1> <br> <a class='disabled rside btn-general btn-gradient' href='../../../appointment'> Book Appointment </a>"
-                        );
+                        "<br><br>"+"Slots Available : "+ slots+"</h1> <br> <a class='rside disabled btn-general btn-gradient' href='../../../appointment'> Book Appointment </a>");
                     }
 
 
@@ -250,17 +246,12 @@
                     });
                 },
                 onEachFeature: function(feature,layer){
-                    if(slots>0)
-                    {
+                    if(slots>=0) {
                         layer.bindPopup("<h1 style='font-size: 18px;text-transform: capitalize'>"+"Center name : "+feature.properties.name.toString()+
-                            "<br><br>"+"Slots Available : "+ slots+"</h1> <br> <a class='rside btn-general btn-gradient' href='../../../appointment'> Book Appointment </a>"
-                        );
-                    }
-                    else
-                    {
+                        "<br><br>"+"Slots Available : "+ slots+"</h1> <br> <a class='rside btn-general btn-gradient' href='../../../appointment'> Book Appointment </a>");
+                    } else {
                         layer.bindPopup("<h1 style='font-size: 18px;text-transform: capitalize'>"+"Center name : "+feature.properties.name.toString()+
-                            "<br><br>"+"Slots Available : "+ slots+"</h1> <br> <a class='disabled rside btn-general btn-gradient' href='../../../appointment'> Book Appointment </a>"
-                        );
+                        "<br><br>"+"Slots Available : "+ slots+"</h1> <br> <a class='rside disabled btn-general btn-gradient' href='../../../appointment'> Book Appointment </a>");
                     }
                 }
 
