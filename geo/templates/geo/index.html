@@ -150,12 +150,12 @@
                 },
                 onEachFeature: function(feature,layer){
 
-                    if(slots>=0) {
+                    if(slots>0) {
                         layer.bindPopup("<h1 style='font-size: 18px;text-transform: capitalize'>"+"Center name : "+feature.properties.name.toString()+
                         "<br><br>"+"Slots Available : "+ slots+"</h1> <br> <a class='rside btn-general btn-gradient' href='../../../appointment'> Book Appointment </a>");
                     } else {
                         layer.bindPopup("<h1 style='font-size: 18px;text-transform: capitalize'>"+"Center name : "+feature.properties.name.toString()+
-                        "<br><br>"+"Slots Available : "+ slots+"</h1> <br> <a class='rside disabled btn-general btn-gradient' href='../../../appointment'> Book Appointment </a>");
+                        "<br><br>"+"Slots Available : "+ slots+"</h1>");
                     }
 
 
@@ -246,12 +246,12 @@
                     });
                 },
                 onEachFeature: function(feature,layer){
-                    if(slots>=0) {
+                    if(slots>0) {
                         layer.bindPopup("<h1 style='font-size: 18px;text-transform: capitalize'>"+"Center name : "+feature.properties.name.toString()+
                         "<br><br>"+"Slots Available : "+ slots+"</h1> <br> <a class='rside btn-general btn-gradient' href='../../../appointment'> Book Appointment </a>");
                     } else {
                         layer.bindPopup("<h1 style='font-size: 18px;text-transform: capitalize'>"+"Center name : "+feature.properties.name.toString()+
-                        "<br><br>"+"Slots Available : "+ slots+"</h1> <br> <a class='rside disabled btn-general btn-gradient' href='../../../appointment'> Book Appointment </a>");
+                        "<br><br>"+"Slots Available : "+ slots+"</h1>");
                     }
                 }
 
