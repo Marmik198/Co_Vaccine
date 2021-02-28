@@ -22,7 +22,7 @@ def map_home(request):
     pnt = Point(lat, lng, srid=4326)
     inc_near = Incidences.objects.annotate(
         distance=Distance('location', pnt)
-    ).order_by('distance').last()
+    ).order_by('distance').first()
 
 
     # print(inc_near)
