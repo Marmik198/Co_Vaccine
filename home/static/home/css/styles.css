@@ -510,13 +510,17 @@ a.rside:hover {
 ******************************************************/
 
 
-.space {
+.space, .space p {
     margin: 0 10px;
-    letter-spacing: 2px;
+    font-size: 20px;
+}
+
+.space p {
+    margin-bottom: 15px;
 }
 
 
-#book h5 {
+#book h3 {
     font-weight: 700;
     font-size: 2rem;
 }
@@ -709,8 +713,10 @@ a.rside:hover {
 }
 
 .map {
-    background-image: url("https://www.google.com/maps/vt/data=s0rDf7ZMKvZMkv1SjMmQLaE36aRooSBUqitIA2omIM0n-4NNz5sOIjM1ImvurOgYQOOpM8toD9etXzv1dKjpP34iQSUFFRIhKTdvwLxDnyAasOKaxuv_dFwo_Uisvz1BKleZ9TMum9UBTFgLseTP69gkwCCeWK4o78TO8Ih4OUCTcyA13t_PZLLQHcMkAaZOhJTu05cN");
     height: 400px;
+    border-radius: 50px;
+    border: none;
+    background-image: url("https://www.google.com/maps/vt/data=s0rDf7ZMKvZMkv1SjMmQLaE36aRooSBUqitIA2omIM0n-4NNz5sOIjM1ImvurOgYQOOpM8toD9etXzv1dKjpP34iQSUFFRIhKTdvwLxDnyAasOKaxuv_dFwo_Uisvz1BKleZ9TMum9UBTFgLseTP69gkwCCeWK4o78TO8Ih4OUCTcyA13t_PZLLQHcMkAaZOhJTu05cN");
     background-position: 0px -85px;
     background-size: cover;
     position: relative;
