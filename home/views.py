@@ -15,8 +15,11 @@ def home(request):
     return render(request, 'home/home.html')
 
 def appointment(request):
-    all_incidences = models.Incidences.objects.all()
-    return render(request, 'home/appointment.html' ,{'all_incidences':all_incidences})
+    secrets = {
+        'reCAPTCHA_SITE_KEY' : '6Le8KmsaAAAAAFWZbyWkSif5hdy6iyxV9ONlLern',
+        'all_incidences' : models.Incidences.objects.all()
+    }
+    return render(request, 'home/appointment.html' ,secrets)
 
 def appointment_form_submission(request):
     firstName = request.POST['firstName']
