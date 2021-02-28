@@ -2,6 +2,7 @@ from datetime import *
 from random import randint
 
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.template import RequestContext
 
@@ -14,6 +15,7 @@ from django.core.mail import EmailMessage
 def home(request):
     return render(request, 'home/home.html')
 
+@login_required
 def appointment(request):
     secrets = {
         'reCAPTCHA_SITE_KEY' : '6Le8KmsaAAAAAFWZbyWkSif5hdy6iyxV9ONlLern',

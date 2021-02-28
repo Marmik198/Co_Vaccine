@@ -38,6 +38,8 @@
         <form method="POST" style="width: 500px;margin: auto">
             {% csrf_token %}
             {{ form|crispy }}
+
+
             <div class="form-group text-center">
                 <button class="btn-general btn-gradient" type="submit">Sign Up</button>
             </div>
