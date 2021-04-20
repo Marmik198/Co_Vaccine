@@ -6,7 +6,7 @@
 [![](https://img.shields.io/badge/Made%20With-Python-informational?style=for-the-badge&logo=Python)](https://www.python.org "Python")
 [![](https://img.shields.io/badge/%E2%86%91_Deploy_to-Heroku-7056bf.svg?style=for-the-badge)](https://covaccine.herokuapp.com/)
 
-![covaccine1](https://user-images.githubusercontent.com/72034531/111866427-5689c780-8993-11eb-90bf-a221d5db0508.jpeg)
+[![Co-Vaccine](https://user-images.githubusercontent.com/72034531/115372101-321a4880-a1e8-11eb-8435-ad4bd5c7f3c8.png)](https://covaccine.herokuapp.com/)
 
 <br>
 
