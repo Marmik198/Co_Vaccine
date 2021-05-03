@@ -29,6 +29,7 @@ class Incidences(models.Model):
 
 
 class Maha1(models.Model):
+
     id_0 = models.BigIntegerField()
     iso = models.CharField(max_length=3)
     name_0 = models.CharField(max_length=75)
