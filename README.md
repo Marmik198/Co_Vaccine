@@ -15,5 +15,5 @@ Co-Vaccine is a portal which helps the people to locate the nearest vaccine cent
 ## The problem Co-Vaccine solves:
 
 Co-Vaccine provides a digital medium for citizens of India to book appointments for vaccination. It allows user to book appointments based on the date and availability of vaccines. It notifies the user regarding his/her appointment status via email, making the entire process digital. 
-### As a part of our OSTPL College assignment, this project is devoted to our Motherland, extending a bit of contribution to help our people in these tough times. Jai Hind 🇮🇳 
+### This project is devoted to our Motherland, extending a bit of contribution to help our people in these tough times. Jai Hind 🇮🇳 
 
