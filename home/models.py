@@ -9,7 +9,7 @@ class Appointment(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE ,blank=True,null=True)
     firstName = models.CharField(max_length=100,blank=True)
     lastname = models.CharField(max_length=100,blank=True)
-    aadhar = models.CharField(max_length=16,blank=True)
+    aadhar = models.CharField(max_length=12,blank=True)
     contact = models.CharField(max_length=10,blank=True)
     age = models.IntegerField(blank=True)
     gender = models.CharField(max_length=30,blank=True)
