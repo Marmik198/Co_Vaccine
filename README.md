@@ -1,6 +1,6 @@
 # CoVaccine
 
-### Co-Vaccine provides a digital medium for citizens of India to book appointments for vaccination. It allows user to book appointments based on the date and availability of vaccines. It notifies the user regarding his/her appointment status via email, making the entire process digital. 
+### Co-Vaccine provides a digital medium for citizens of India to book appointments for vaccination. It allows user to book appointments based on the date and availability of vaccines. It notifies the user regarding the appointment status via email, making the entire process digital. 
 
 [![](https://img.shields.io/badge/Made%20With-Python-informational?style=for-the-badge&logo=Python)](https://www.python.org "Python")
 [![](https://img.shields.io/badge/Made_with-Django-red?style=for-the-badge&logo=Django)](https://docs.djangoproject.com/en/4.0/)
