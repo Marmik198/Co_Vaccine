@@ -7,8 +7,10 @@ from django.shortcuts import render, redirect
 from django.template import RequestContext
 
 from .models import Appointment
+from django.conf import settings
 from geo import models
 from django.conf import settings
+
 from django.template.loader import render_to_string
 from django.core.mail import EmailMessage
 
