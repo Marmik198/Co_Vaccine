@@ -60,6 +60,7 @@ INSTALLED_APPS = [
     'leaflet',
     'geoip2',
     'crispy_forms',
+    'crispy-bootstrap4',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
